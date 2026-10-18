@@ -148,3 +148,24 @@ Stage Summary:
 - Site accent system is now "Glacier" Ice & Silver: one blue family, subtle two-tone gradients, zero rainbow
 - All accents flow from 3 CSS vars (--glow/--nebula/--flare) in globals.css - further retunes are a 6-line edit
 - out/ rebuilt, ready for git push + Cloudflare Pages redeploy
+
+---
+Task ID: 9
+Agent: main (Z.ai)
+Task: Rebrand portfolio from Ice & Silver (arctic blue) to Chrome Silver dark theme — "chromy dark, futuristic, elegant", both light and dark modes.
+
+Work Log:
+- Designed 2-mode chrome palette: dark "Liquid Titanium" (bg #0a0c10, panels #12151b, accents --glow #dde4ee / --nebula #f5f8fc / --flare #8c97a9), light "Brushed Platinum" (bg #f4f5f7, accents #414b5c / #5c6779 / #8a95a6)
+- globals.css: retuned all dark+light tokens to neutral graphite/silver (foreground, ink scale, lines, muted, sidebar, ring, star-glow, grid-line, hull)
+- Added 5 new --chrome-a..e vars per mode + rewrote .text-gradient-cosmic as 5-stop alternating metallic gradient (specular → steel dip → bright horizon → deep reflection → polished tail) — the chrome signature
+- Retuned legacy navy-* scale to neutral titanium values (kept class names) — de-blued all muted text on hull panels, footer, contact, tools, reading-list, navbar
+- hero.tsx: code window syntax → monochrome titanium (keywords slate-100, decorators slate-200, types slate-300, identifiers slate-400, strings #b6c0cf, punctuation slate-500); Docker chip #a3be8c → text-glow; availability badge dark text → emerald-300
+- starfield.tsx: stars → polished-silver #d6dee9 / steel #949eaf / specular white; meteors silver-white; light-mode specks graphite
+- favicon.svg: 3-stop chrome gradient (#f5f8fc → #8c97a9 → #dde4ee) on graphite #0a0c10
+- bun run lint + build: zero errors; verified out/ contains chrome hexes and zero old ice-blue/navy hexes (a9c9ea, e4edf9, 7fa8d6, b9d4f0, a3be8c, 8fbcbb, 88c0d0 all gone)
+- agent-browser verification: dark hero (chrome name gradient visible), dark missions (chrome active pill), light hero (brushed platinum), light contact (hull panel readable), console clean, dark default restored
+
+Stage Summary:
+- Site is now Chrome Silver: dark = liquid titanium on carbon graphite, light = brushed platinum; both driven by the same CSS var tokens
+- Semantic colors untouched (emerald/amber status badges, traffic lights, tech logo colors)
+- out/ static export rebuilt and verified — ready for user's manual push to GitHub + Cloudflare Pages

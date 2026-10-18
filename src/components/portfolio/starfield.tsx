@@ -9,7 +9,7 @@ interface Star {
   baseAlpha: number;
   phase: number;
   speed: number;
-  tint: number; // 0..1 — higher = bluer star
+  tint: number; // 0..1 — higher = steel-tinted star
 }
 
 interface Meteor {
@@ -23,8 +23,8 @@ interface Meteor {
 
 /**
  * Full-page starfield: twinkling stars + occasional shooting stars.
- * Fixed behind all content (-z-10), theme-aware (white-blue stars in dark
- * mode, faint navy specks in light mode), honors prefers-reduced-motion,
+ * Fixed behind all content (-z-10), theme-aware (chrome-white stars in dark
+ * mode, faint graphite specks in light mode), honors prefers-reduced-motion,
  * pauses when the tab is hidden.
  */
 export function Starfield() {
@@ -86,11 +86,11 @@ export function Starfield() {
         ctx!.arc(s.x, s.y, s.r, 0, Math.PI * 2);
         ctx!.fillStyle = dark
           ? s.tint > 0.86
-            ? `rgba(203,219,240,${a})` // silver star
+            ? `rgba(214,222,233,${a})` // polished-silver star
             : s.tint > 0.7
-              ? `rgba(169,201,234,${a * 0.9})` // glacier-ice star
-              : `rgba(255,255,255,${a})` // classic white
-          : `rgba(28,42,74,${a})`;
+              ? `rgba(148,158,175,${a * 0.9})` // steel star
+              : `rgba(255,255,255,${a})` // specular white
+          : `rgba(32,39,52,${a})`;
         ctx!.fill();
       }
 
@@ -117,8 +117,8 @@ export function Starfield() {
           const tailY = m.y - m.vy * 13;
           const grad = ctx!.createLinearGradient(m.x, m.y, tailX, tailY);
           grad.addColorStop(0, `rgba(255,255,255,${0.85 * fade})`);
-          grad.addColorStop(0.3, `rgba(169,201,234,${0.5 * fade})`);
-          grad.addColorStop(1, "rgba(169,201,234,0)");
+          grad.addColorStop(0.3, `rgba(196,205,218,${0.5 * fade})`);
+          grad.addColorStop(1, "rgba(196,205,218,0)");
           ctx!.strokeStyle = grad;
           ctx!.lineWidth = 1.6;
           ctx!.lineCap = "round";
