@@ -84,7 +84,7 @@ export const heroStats = [
   { value: "4+", label: "Years of Backend Experience" },
   { value: "3", label: "Production Backend Roles" },
   { value: "15+", label: "Technologies in Daily Stack" },
-  { value: "2", label: "Key Projects Designed & Built" },
+  { value: "5", label: "Key Projects Designed & Built" },
 ];
 
 export const about = {
@@ -207,19 +207,79 @@ export const projects: Project[] = [
     ],
   },
   {
+    id: "eveto",
+    title: "Eveto — Event Ticketing Platform",
+    emoji: "🎟️",
+    tagline: "Production-grade, Eventbrite-style ticketing backend",
+    description:
+      "A lightweight event-management platform handling the complete ticketing lifecycle — browsing, booking, mock payment processing, and confirmation — with full admin control over venues and inventory. External partners integrate through a versioned, rate-limited REST API. Built to master advanced backend patterns under high concurrency.",
+    status: "In Progress",
+    tech: [
+      "FastAPI",
+      "PostgreSQL",
+      "Redis",
+      "Dramatiq",
+      "SQLAlchemy",
+      "JWT",
+      "Prometheus",
+      "Docker",
+    ],
+    highlights: [
+      "Concurrency-safe ticket reservations using PostgreSQL locking",
+      "Asynchronous payments with idempotent webhooks + Dramatiq workers",
+      "RBAC with JWT (RS256) auth and a versioned, rate-limited partner API",
+      "OpenTelemetry tracing, Prometheus metrics, and structured logging",
+    ],
+    repoUrl: "https://github.com/Its-Xen/Eveto",
+  },
+  {
     id: "study-social-hub",
     title: "Study Social Hub",
     emoji: "📚",
     tagline: "Collaborative study rooms with gamified progress tracking",
     description:
-      "Backend architecture for a collaborative study platform: shared study rooms, timers, progress tracking, streaks, and leaderboards. Note-management and AI-powered summary/quiz workflows are planned as modular services so the system can scale feature by feature.",
-    status: "In Progress",
+      "Backend architecture for a collaborative study platform: shared study rooms, timers, progress tracking, streaks, and leaderboards. Note-management and AI-powered summary/quiz workflows are structured as modular services so the system can scale feature by feature.",
+    status: "Completed",
     tech: ["FastAPI", "PostgreSQL", "Redis", "Docker"],
     highlights: [
       "Collaborative study rooms with timers and shared progress tracking",
       "Streaks and leaderboards to keep learners engaged",
-      "Note-management and AI-powered summary/quiz workflows planned as modular services",
+      "Note-management and AI-powered summary/quiz workflows built as modular services",
     ],
+  },
+  {
+    id: "medium-clone",
+    title: "Medium Clone API",
+    emoji: "✍️",
+    tagline: "Medium-style publishing backend with Django & DRF",
+    description:
+      "A backend implementation of a Medium-like blog platform built with Django and Django REST Framework — a robust API for managing users, articles, comments, and everything else behind a publishing platform, secured with JWT authentication and backed by an Elasticsearch service.",
+    status: "Completed",
+    tech: ["Django", "DRF", "JWT", "Elasticsearch", "pytest", "Docker"],
+    highlights: [
+      "Robust DRF API for users, articles, and comments",
+      "JWT authentication across the platform",
+      "Article CRUD backed by an Elasticsearch service",
+      "pytest suite with coverage reporting",
+    ],
+    repoUrl: "https://github.com/Its-Xen/Medium-Clone",
+  },
+  {
+    id: "recipe-app",
+    title: "Recipe App",
+    emoji: "🍳",
+    tagline: "Django web app for browsing and sharing recipes",
+    description:
+      "A Django-powered recipe app that organizes recipes effortlessly — visitors browse a categorized collection, open detailed pages with ingredients and instructions, and publish their own recipes with image upload, all wrapped in a friendly Bootstrap interface.",
+    status: "Completed",
+    tech: ["Django", "Bootstrap", "Pillow"],
+    highlights: [
+      "Category browsing — dinners, desserts, and drinks",
+      "Create recipes with image upload via Pillow",
+      "Detailed recipe pages with ingredients & instructions",
+      "User profiles with photo upload",
+    ],
+    repoUrl: "https://github.com/Its-Xen/Recipe-App",
   },
 ];
 

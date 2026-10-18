@@ -228,7 +228,9 @@ export function Projects() {
                     )}
                     {!project.repoUrl && !project.liveUrl && (
                       <span className="text-xs italic text-ink-muted">
-                        Design phase — code coming soon
+                        {project.status === "Completed"
+                          ? "Private project — details on request"
+                          : "Design phase — code coming soon"}
                       </span>
                     )}
                   </div>

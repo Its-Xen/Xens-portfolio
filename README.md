@@ -24,7 +24,7 @@ GitHub Pages, Netlify, Nginx…).
 | 0 | Hero | Name, title, tagline, FastAPI code window, stats, CTAs |
 | 1 | About | Profile narrative + core strengths chips + highlight cards |
 | 2 | Experience | Timeline of ROSHD Company, Saha App, Moshaversara roles |
-| 3 | Key Projects | E-commerce platform + Study Social Hub, with **status filters** (Completed / In Progress) |
+| 3 | Missions | 5 projects — FastAPI E-Commerce, Eveto ticketing, Study Social Hub, Medium Clone API, Recipe App — with **status filters** (Completed / In Progress) |
 | 4 | Tools & Technologies | Grouped skill grid from the résumé |
 | 5 | Education & Languages | B.Sc. Computer Engineering + language proficiency |
 | 6 | Reading List | 13 books read & owned — real cover photos, shelf notes, Goodreads links |

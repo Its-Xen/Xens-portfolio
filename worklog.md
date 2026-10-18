@@ -111,3 +111,19 @@ Stage Summary:
 - Site is now "Deep Space Mission Control": dark by default with living starfield + shooting stars, orbit-ringed code window, cosmic gradients; light mode one click away and persists
 - Theme palette tuneable in one place (globals.css token blocks); content still 100% centralized in portfolio-data.ts
 - Ready for user's manual git push + Cloudflare Pages deploy
+
+---
+Task ID: 7
+Agent: Main agent (Z.ai)
+Task: Add 3 GitHub repos (Eveto, Medium-Clone, Recipe-App) to Missions section; Study Social Hub -> Completed; all missions Completed except Eveto (In Progress)
+
+Work Log:
+- Fetched the 3 repos live from github.com/Its-Xen for accurate data: Eveto (FastAPI ticketing backend - PostgreSQL locking, Redis, Dramatiq workers, idempotent webhooks, RBAC + JWT RS256, OpenTelemetry/Prometheus, rate-limited versioned partner API, MIT), Medium-Clone (Django+DRF Medium-style blog API - JWT, Elasticsearch, pytest, 2 stars), Recipe-App (Django+Bootstrap recipe web app - Pillow image upload, categories, 1 star)
+- portfolio-data.ts: projects array 2 -> 5 (order: ecommerce-api, eveto, study-social-hub, medium-clone, recipe-app); Study Social Hub status In Progress -> Completed with description/highlights reworded from "planned" to shipped ("structured as"/"built as" modular services); Eveto status "In Progress" with repoUrl, all others "Completed"; added real repoUrls for the 3 new repos; heroStats "2 Key Projects Designed & Built" -> "5"
+- projects.tsx: no-link card footer is now status-aware - Completed + no repo shows "Private project - details on request" instead of the misleading "Design phase - code coming soon"
+- README.md: section table row 3 renamed "Key Projects" -> "Missions" with the 5-project list
+- Verified: bun run build clean, eslint clean; out/index.html contains all 5 titles, 3 repo links, Dramatiq chips, "Private project" fallbacks; agent-browser at 1440px dark mode: filter tabs All 5 / Completed 4 / In Progress 1 render with counts, Eveto shows amber In Progress badge + Code link, In Progress filter -> only Eveto, Completed filter -> exactly the 4 completed cards, hero stats bar shows "5 Key Projects Designed & Built"; zero console errors (only pre-existing shadcn DialogContent aria warning)
+
+Stage Summary:
+- Missions section now shows 5 projects: 4 Completed + 1 In Progress (Eveto only), filters derive from data as before
+- Static export out/ rebuilt and ready for the user's manual git push + Cloudflare Pages deploy
