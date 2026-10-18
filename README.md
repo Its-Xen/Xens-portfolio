@@ -1,12 +1,9 @@
 # Parsa Nazari — Portfolio
 
-Personal portfolio website for **Parsa Nazari**, Backend Developer (Python & FastAPI).
-Fully **static** — no server, no database, no runtime costs. Built with Next.js, exported
-to plain HTML/CSS/JS, deployable anywhere static files are served (Cloudflare Pages,
-GitHub Pages, Netlify, Nginx…).
+🌐 **Live:** https://its-xen.pages.dev
 
-> ⚠️ **Private by design:** all personal data lives in one file —
-> `src/lib/portfolio-data.ts`. Edit that file to change anything on the site.
+Personal portfolio for **Parsa Nazari**, Backend Developer (Python & FastAPI).
+Built with Next.js 16, TypeScript, and Tailwind CSS. Fully static — no server, no database, no runtime costs.
 
 ## Theme — "Deep Space Mission Control"
 
@@ -46,84 +43,4 @@ bun install        # or: npm install
 bun run dev        # dev server on http://localhost:3000
 bun run build      # static export → ./out
 bun run start      # serve ./out on http://localhost:3000 (after build)
-```
-
-## Make the Contact Form Send Email (optional, 1 minute)
-
-Out of the box the form falls back to opening the visitor's email client with a
-pre-filled message (works everywhere, zero setup).
-
-To have messages **delivered straight to your inbox** instead:
-
-1. Go to <https://web3forms.com> and enter your email → you receive a free **access key**.
-2. Open `src/lib/portfolio-data.ts` and paste it:
-   ```ts
-   web3formsKey: "YOUR-ACCESS-KEY-HERE",
-   ```
-3. Rebuild + redeploy. Submissions now arrive at `callmexenix@gmail.com`.
-
-## Push to GitHub
-
-```bash
-cd /path/to/this/project
-git init
-git add .
-git commit -m "Portfolio: Parsa Nazari — backend developer"
-git branch -M main
-git remote add origin https://github.com/Its-Xen/portfolio.git   # create the repo on github.com first
-git push -u origin main
-```
-
-## Deploy to Cloudflare Pages (free, gives you `*.pages.dev`)
-
-### Option A — Git integration (recommended: auto-redeploys on every push)
-
-1. Cloudflare Dashboard → **Workers & Pages** → **Create** → **Pages** → **Connect to Git**.
-2. Select the `portfolio` repo you just pushed.
-3. Build settings:
-   - **Framework preset:** `None`
-   - **Build command:** `npm run build`   *(or `bun run build`)*
-   - **Build output directory:** `out`
-   - **Environment variable:** `NODE_VERSION` = `22`
-4. **Save and Deploy** → your site is live at `https://<project-name>.pages.dev`.
-
-Every future `git push` redeploys automatically.
-
-### Option B — Direct upload (no Git connection needed)
-
-```bash
-npx wrangler@latest login
-npx wrangler@latest pages deploy out --project-name parsa-portfolio
-```
-
-Live at `https://parsa-portfolio.pages.dev` a few seconds later.
-
-### Custom domain (later, optional)
-
-Pages project → **Custom domains** → add e.g. `parsanazari.dev` (any registrar;
-Cloudflare also sells `.dev` domains at cost). SSL is automatic.
-
-## Project Structure
-
-```
-src/
-├── app/
-│   ├── layout.tsx          # metadata, fonts, theme init script
-│   ├── page.tsx            # section order lives here (+ starfield)
-│   └── globals.css         # ⭐ space theme tokens (light + dark)
-├── components/portfolio/
-│   ├── navbar.tsx          # sticky nav + theme toggle + mobile sheet
-│   ├── starfield.tsx       # canvas: twinkling stars + shooting stars
-│   ├── theme-toggle.tsx    # dark/light switch (localStorage)
-│   ├── hero.tsx            # intro + FastAPI code window in orbit rings
-│   ├── about.tsx           # narrative + strengths + highlight cards
-│   ├── experience.tsx      # career timeline
-│   ├── projects.tsx        # filterable project cards
-│   ├── tools.tsx           # tech stack grid
-│   ├── education.tsx       # degree + languages
-│   ├── reading-list.tsx    # book shelf (covers + notes)
-│   ├── contact.tsx         # static form (Web3Forms / mailto)
-│   └── footer.tsx
-└── lib/
-    └── portfolio-data.ts   # ⭐ EDIT THIS — all site content
 ```
