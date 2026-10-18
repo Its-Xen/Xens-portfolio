@@ -169,3 +169,23 @@ Stage Summary:
 - Site is now Chrome Silver: dark = liquid titanium on carbon graphite, light = brushed platinum; both driven by the same CSS var tokens
 - Semantic colors untouched (emerald/amber status badges, traffic lights, tech logo colors)
 - out/ static export rebuilt and verified — ready for user's manual push to GitHub + Cloudflare Pages
+
+---
+Task ID: 10
+Agent: main (Z.ai)
+Task: Toolbox expansion — add JS/Ruby/Rust (Languages), MongoDB/SQLite/Memcached/Valkey/Oracle/Elasticsearch (Databases & Caching), Apache (Infrastructure), all with icons.
+
+Work Log:
+- simple-icons CDN was Cloudflare-blocked → downloaded single-color SVGs from jsdelivr npm package (v13) and injected brand fills manually
+- Brand colors from simple-icons data: JavaScript F7DF1E, Ruby CC342D, MongoDB 47A248, Oracle F80000, Apache D22128; visibility overrides for dark theme: Rust 000000→F74C00 (ferris orange), SQLite 003B57→0F80CC (SQLite logo blue), Elasticsearch 005571→00BFB3 (Elastic teal)
+- Memcached: not in simple-icons → fetched full-color gradient SVG from gilbarbara/logos repo
+- Valkey: not in simple-icons → downloaded official valkey-horizontal.svg, extracted the icon-only mark path (cls-2, #6983ff) into a square viewBox="2.35 6 52.2 52.2" custom valkey.svg
+- portfolio-data.ts: added 10 items across 3 groups with icons+colors; added optional invertDark flag to TechGroup item type
+- tools.tsx: img className gets dark:invert when item.invertDark — fixes pre-existing invisible-on-dark brand-black icons (Kafka #231f20, GitHub Actions #181717, JWT #000000) while keeping brand fills in light mode
+- Rendered a test page (both themes) to verify all 10 new icons before wiring; removed test file from out/
+- lint + build zero errors; verified all 10 names + icon refs in out/index.html; screenshots: dark languages/db/messaging/infra rows, light toolbox — all icons legible; console clean; dark default restored
+
+Stage Summary:
+- Toolbox now: Languages 5 (Python, SQL, JS, Ruby, Rust), Databases & Caching 9 (PG, MySQL, SQLite, MongoDB, Oracle, Redis, Memcached, Valkey, Elasticsearch), Infrastructure 7 (Docker, Nginx, Apache, Linux, Git, GitHub Actions, CI/CD)
+- Bonus fix: 3 brand-black icons now visible in dark mode via dark:invert
+- out/ rebuilt, ready for push/deploy

@@ -24,7 +24,7 @@ export interface Project {
 export interface TechGroup {
   category: string;
   icon: string; // lucide icon key resolved in the component
-  items: { name: string; monogram: string; color: string; icon?: string }[];
+  items: { name: string; monogram: string; color: string; icon?: string; invertDark?: boolean }[];
 }
 
 export interface ExperienceItem {
@@ -290,6 +290,9 @@ export const techGroups: TechGroup[] = [
     items: [
       { name: "Python", monogram: "Py", color: "#3776ab", icon: "python" },
       { name: "SQL", monogram: "Sq", color: "#e38c00" },
+      { name: "JavaScript", monogram: "Js", color: "#f7df1e", icon: "javascript" },
+      { name: "Ruby", monogram: "Rb", color: "#cc342d", icon: "ruby" },
+      { name: "Rust", monogram: "Rs", color: "#f74c00", icon: "rust" },
     ],
   },
   {
@@ -302,7 +305,7 @@ export const techGroups: TechGroup[] = [
       { name: "Django Channels", monogram: "Ch", color: "#0c7c59" },
       { name: "Pydantic", monogram: "Pd", color: "#e92063", icon: "pydantic" },
       { name: "SQLAlchemy", monogram: "Sa", color: "#d71f00" },
-      { name: "JWT Authentication", monogram: "Jw", color: "#000000", icon: "jsonwebtokens" },
+      { name: "JWT Authentication", monogram: "Jw", color: "#000000", icon: "jsonwebtokens", invertDark: true },
       { name: "OpenAPI", monogram: "Oa", color: "#6ba539", icon: "openapiinitiative" },
     ],
   },
@@ -312,14 +315,20 @@ export const techGroups: TechGroup[] = [
     items: [
       { name: "PostgreSQL", monogram: "Pg", color: "#336791", icon: "postgresql" },
       { name: "MySQL", monogram: "My", color: "#00758f", icon: "mysql" },
+      { name: "SQLite", monogram: "Sl", color: "#0f80cc", icon: "sqlite" },
+      { name: "MongoDB", monogram: "Mo", color: "#47a248", icon: "mongodb" },
+      { name: "Oracle", monogram: "Or", color: "#f80000", icon: "oracle" },
       { name: "Redis", monogram: "Re", color: "#dc382d", icon: "redis" },
+      { name: "Memcached", monogram: "Mc", color: "#3e8ede", icon: "memcached" },
+      { name: "Valkey", monogram: "Vk", color: "#6983ff", icon: "valkey" },
+      { name: "Elasticsearch", monogram: "Es", color: "#00bfb3", icon: "elasticsearch" },
     ],
   },
   {
     category: "Messaging & Architecture",
     icon: "workflow",
     items: [
-      { name: "Kafka", monogram: "Kf", color: "#231f20", icon: "apachekafka" },
+      { name: "Kafka", monogram: "Kf", color: "#231f20", icon: "apachekafka", invertDark: true },
       { name: "Event-Driven Architecture", monogram: "Ev", color: "#7c3aed" },
       { name: "Clean Architecture", monogram: "Cl", color: "#0e7490" },
       { name: "Microservices", monogram: "Mi", color: "#4f46e5" },
@@ -332,9 +341,10 @@ export const techGroups: TechGroup[] = [
     items: [
       { name: "Docker", monogram: "Dk", color: "#2496ed", icon: "docker" },
       { name: "Nginx", monogram: "Nx", color: "#009639", icon: "nginx" },
+      { name: "Apache", monogram: "Ap", color: "#d22128", icon: "apache" },
       { name: "Linux", monogram: "Li", color: "#fcc624", icon: "linux" },
       { name: "Git", monogram: "Gt", color: "#f05032", icon: "git" },
-      { name: "GitHub Actions", monogram: "Gh", color: "#181717", icon: "githubactions" },
+      { name: "GitHub Actions", monogram: "Gh", color: "#181717", icon: "githubactions", invertDark: true },
       { name: "CI/CD", monogram: "Ci", color: "#059669" },
     ],
   },

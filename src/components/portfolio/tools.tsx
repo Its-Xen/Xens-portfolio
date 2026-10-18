@@ -74,7 +74,10 @@ export function Tools() {
                               src={`/tech/${item.icon}.svg`}
                               alt=""
                               loading="lazy"
-                              className="size-5"
+                              className={cn(
+                                "size-5",
+                                item.invertDark && "dark:invert"
+                              )}
                             />
                           </span>
                         ) : (
