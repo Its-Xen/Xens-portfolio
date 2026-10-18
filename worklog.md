@@ -58,3 +58,17 @@ Stage Summary:
 - Site now has 7 numbered sections (01–07): About, Experience, Projects, Skills, Education, Reading, Contact
 - Books are data-driven from portfolio-data.ts like everything else — add/remove titles there only
 - Static export out/ regenerated and ready for the user's manual git push + Cloudflare Pages deploy
+
+---
+Task ID: 4
+Agent: Main agent (Z.ai)
+Task: Demo request — show the user the finished site ("show me the result")
+
+Work Log:
+- Started static server on port 3000 serving out/ (matches package.json "start" script); platform edge proxy returns 200 OK
+- agent-browser: slow-scrolled page to trigger all whileInView reveals, captured full-page desktop (all 7 sections + footer render), close-ups of hero, projects (filter tabs w/ counts), contact (07), reading list; mobile 375px full-page + hamburger menu verified earlier
+- Zero console errors; no code changes — screenshots only
+- Preview bot-id not derivable from IM metadata (guessed variants 404 at edge) — did NOT give user a broken link; public URL will come from their Cloudflare Pages deploy
+
+Stage Summary:
+- Site fully verified visually end-to-end; static server left running on port 3000 in this sandbox session
