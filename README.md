@@ -18,7 +18,8 @@ GitHub Pages, Netlify, Nginx…).
 | 3 | Key Projects | E-commerce platform + Study Social Hub, with **status filters** (Completed / In Progress) |
 | 4 | Tools & Technologies | Grouped skill grid from the résumé |
 | 5 | Education & Languages | B.Sc. Computer Engineering + language proficiency |
-| 6 | Contact | Static contact form (Web3Forms) + email / phone / GitHub |
+| 6 | Reading List | 13 books read & owned — CSS covers, shelf notes, Goodreads links |
+| 7 | Contact | Static contact form (Web3Forms) + email / phone / GitHub |
 
 ## Tech Stack
 

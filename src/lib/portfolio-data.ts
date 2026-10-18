@@ -36,6 +36,21 @@ export interface ExperienceItem {
   tech: string[];
 }
 
+export interface Book {
+  title: string;
+  author: string;
+  category: string;
+  note: string;
+  /** Gradient for the CSS book cover: [from, to] */
+  gradient: [string, string];
+  link?: string;
+}
+
+export interface NavLink {
+  label: string;
+  href: string;
+}
+
 export const profile = {
   name: "Parsa Nazari",
   firstName: "Parsa",
@@ -292,11 +307,123 @@ export const education = {
   ],
 };
 
-export const navLinks = [
+/**
+ * Books I've read and keep on my shelf — a mix of Python craft, API design,
+ * data systems, security, protocols, and the infrastructure underneath it all.
+ */
+export const books: Book[] = [
+  {
+    title: "Fluent Python",
+    author: "Luciano Ramalho",
+    category: "Python",
+    note: "The Pythonic deep dive — data model, dunder methods, and idioms. Made my code measurably more Pythonic.",
+    gradient: ["#2b5b84", "#3776ab"],
+    link: "https://www.goodreads.com/search?q=Fluent+Python+Luciano+Ramalho",
+  },
+  {
+    title: "Robust Python",
+    author: "Patrick Viafore",
+    category: "Python",
+    note: "Writing Python that resists bugs — typing, contracts, and defensive patterns for production codebases.",
+    gradient: ["#4c1d95", "#7c3aed"],
+    link: "https://www.goodreads.com/search?q=Robust+Python+Patrick+Viafore",
+  },
+  {
+    title: "Django for APIs",
+    author: "William S. Vincent",
+    category: "APIs & Frameworks",
+    note: "My DRF reference — serializers, viewsets, and REST design patterns straight from real project work.",
+    gradient: ["#0c4a33", "#0f7a4d"],
+    link: "https://www.goodreads.com/search?q=Django+for+APIs+William+Vincent",
+  },
+  {
+    title: "Building Python Microservices with FastAPI",
+    author: "Sherwin John C. Tragura",
+    category: "APIs & Frameworks",
+    note: "Structuring FastAPI services at scale — modular design, async workflows, and deployment patterns.",
+    gradient: ["#0d6e64", "#009688"],
+    link: "https://www.goodreads.com/search?q=Building+Python+Microservices+with+FastAPI+Tragura",
+  },
+  {
+    title: "Designing Data-Intensive Applications",
+    author: "Martin Kleppmann",
+    category: "Data Systems",
+    note: "The data-systems bible — replication, partitioning, and consistency. The mental model behind my Kafka and Redis decisions.",
+    gradient: ["#1e293b", "#475569"],
+    link: "https://www.goodreads.com/search?q=Designing+Data-Intensive+Applications+Kleppmann",
+  },
+  {
+    title: "Clean Code",
+    author: "Robert C. Martin (Uncle Bob)",
+    category: "Code Craft",
+    note: "Names, functions, and boundaries — the craft standard I hold every module to.",
+    gradient: ["#7c2d12", "#c2410c"],
+    link: "https://www.goodreads.com/search?q=Clean+Code+Robert+Martin",
+  },
+  {
+    title: "Domain-Driven Design",
+    author: "Eric Evans",
+    category: "Architecture",
+    note: "The blue book — ubiquitous language and bounded contexts, how I think about modular monoliths.",
+    gradient: ["#1e3a8a", "#2563eb"],
+    link: "https://www.goodreads.com/search?q=Domain-Driven+Design+Eric+Evans",
+  },
+  {
+    title: "Web Application Security",
+    author: "Andrew Hoffman",
+    category: "Security",
+    note: "Attacks and defenses end to end, from the request line to auth — how I approach hardening APIs.",
+    gradient: ["#7f1d1d", "#dc2626"],
+    link: "https://www.goodreads.com/search?q=Web+Application+Security+Andrew+Hoffman",
+  },
+  {
+    title: "HTTP: The Definitive Guide",
+    author: "David Gourley",
+    category: "Protocols",
+    note: "The HTTP/1.1 deep dive — methods, headers, connections, and caching, from first principles.",
+    gradient: ["#92400e", "#d97706"],
+    link: "https://www.goodreads.com/search?q=HTTP+The+Definitive+Guide+Gourley",
+  },
+  {
+    title: "Learning HTTP/2",
+    author: "Stephen Ludin & Javier Garza",
+    category: "Protocols",
+    note: "Multiplexing, streams, and header compression — what actually changes at the protocol level.",
+    gradient: ["#155e75", "#0891b2"],
+    link: "https://www.goodreads.com/search?q=Learning+HTTP/2+Ludin+Garza",
+  },
+  {
+    title: "Networking Fundamentals",
+    author: "Crystal Panek",
+    category: "Networking",
+    note: "IP, subnetting, routing, and DNS — the layered model everything I deploy runs on.",
+    gradient: ["#334155", "#64748b"],
+    link: "https://www.goodreads.com/search?q=Networking+Fundamentals+Crystal+Panek",
+  },
+  {
+    title: "NGINX Cookbook",
+    author: "Derek DeJonghe",
+    category: "Infrastructure",
+    note: "Practical recipes for load balancing, caching, and TLS — my production reverse-proxy companion.",
+    gradient: ["#00532b", "#009639"],
+    link: "https://www.goodreads.com/search?q=NGINX+Cookbook+Derek+DeJonghe",
+  },
+  {
+    title: "Ansible: Up and Running",
+    author: "Bas Meijer",
+    category: "Infrastructure",
+    note: "Configuration as code — provisioning and automating Linux servers the reproducible way.",
+    gradient: ["#111827", "#374151"],
+    link: "https://www.goodreads.com/search?q=Ansible+Up+and+Running+Bas+Meijer",
+  },
+];
+
+export const navLinks: NavLink[] = [
   { label: "About", href: "#about" },
   { label: "Experience", href: "#experience" },
   { label: "Projects", href: "#projects" },
   { label: "Skills", href: "#skills" },
   { label: "Education", href: "#education" },
+  { label: "Reading", href: "#reading" },
   { label: "Contact", href: "#contact" },
 ];

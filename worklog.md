@@ -41,3 +41,20 @@ Stage Summary:
 - Deliverable: fully static portfolio (out/) with 100% real résumé data, zero backend, zero cost
 - Dev server note: processes spawned in agent sessions get reaped; platform start.sh self-heals on reboot (no-op db:push added for compatibility). Run `bun run dev` or serve out/ manually as needed
 - User next steps: push to GitHub (commands in README), deploy via Cloudflare Pages git-integration → *.pages.dev; optionally paste Web3Forms key into portfolio-data.ts to enable email delivery
+
+---
+Task ID: 3
+Agent: Main agent (Z.ai)
+Task: Stage 2 addendum — re-add the Reading List section with the user's real 13-book shelf
+
+Work Log:
+- Added Book interface + books export (13 real titles/authors) to src/lib/portfolio-data.ts: Fluent Python, Robust Python, Django for APIs, Building Python Microservices with FastAPI, Designing Data-Intensive Applications, Clean Code, Domain-Driven Design, Web Application Security, HTTP: The Definitive Guide, Learning HTTP/2, Networking Fundamentals, NGINX Cookbook, Ansible: Up and Running — each with category, one-line shelf note, gradient pair for the CSS cover, and a Goodreads reference link (author spelling normalized where the published metadata differs, e.g. Stephen Ludin)
+- Re-added navLinks entry Reading (#reading) between Education and Contact; navbar desktop links switched md → lg breakpoints so 7 links fit (hamburger below lg, verified at 375px)
+- Created src/components/portfolio/reading-list.tsx: light navy-50 section, SectionHeading index 06, responsive grid (1/2/4 cols) of book cards — gradient CSS covers with spine highlights + category label + title/author overlay + hover shine, per-book note below; 13 books + navy stats card (lg:col-span-3) = perfectly balanced 4×4 grid: count "13 books read & owned", 6-shelf summary, "Theory that shipped" line, $ cat shelf.next mono block, "Suggest a book" CTA → #contact
+- page.tsx: <ReadingList /> between Education and Contact (rhythm: dark → navy-50 → white); contact.tsx heading renumbered 06 → 07; README section table updated to 8 rows
+- Verified: bun run build clean, eslint clean, all 13 titles + id="reading" present in out/index.html; browser screenshots at 1440px (heading, full grid, balanced last row) and 375px (single column, hamburger with 7 links); zero console errors
+
+Stage Summary:
+- Site now has 7 numbered sections (01–07): About, Experience, Projects, Skills, Education, Reading, Contact
+- Books are data-driven from portfolio-data.ts like everything else — add/remove titles there only
+- Static export out/ regenerated and ready for the user's manual git push + Cloudflare Pages deploy

@@ -54,7 +54,7 @@ export function Navbar() {
         </a>
 
         {/* Desktop links */}
-        <ul className="hidden md:flex items-center gap-0.5">
+        <ul className="hidden lg:flex items-center gap-0.5">
           {navLinks.map((link) => (
             <li key={link.href}>
               <a
@@ -70,7 +70,7 @@ export function Navbar() {
         <div className="flex items-center gap-2">
           <a
             href="#contact"
-            className="hidden md:inline-flex items-center gap-1.5 rounded-lg bg-brand-500 px-4 py-2 text-sm font-semibold text-navy-950 transition-all hover:bg-brand-400 hover:shadow-lg hover:shadow-brand-500/25"
+            className="hidden lg:inline-flex items-center gap-1.5 rounded-lg bg-brand-500 px-4 py-2 text-sm font-semibold text-navy-950 transition-all hover:bg-brand-400 hover:shadow-lg hover:shadow-brand-500/25"
           >
             <Send className="size-3.5" aria-hidden="true" />
             Hire Me
@@ -80,7 +80,7 @@ export function Navbar() {
           <Sheet open={open} onOpenChange={setOpen}>
             <SheetTrigger asChild>
               <button
-                className="md:hidden inline-flex size-10 items-center justify-center rounded-lg text-white hover:bg-white/10 transition-colors"
+                className="lg:hidden inline-flex size-10 items-center justify-center rounded-lg text-white hover:bg-white/10 transition-colors"
                 aria-label="Open navigation menu"
               >
                 <Menu className="size-5" />

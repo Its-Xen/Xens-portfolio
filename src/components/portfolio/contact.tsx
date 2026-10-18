@@ -110,7 +110,7 @@ export function Contact() {
     >
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <SectionHeading
-          index="06"
+          index="07"
           eyebrow="Contact"
           title="Let's build something reliable"
           description="Recruiting for a backend role? Need an API designed, optimized, or refactored? My inbox is open — I read every message myself."
