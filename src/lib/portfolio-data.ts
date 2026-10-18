@@ -81,7 +81,7 @@ export const profile = {
 };
 
 export const heroStats = [
-  { value: "4+", label: "Years of Backend Experience" },
+  { value: "5+", label: "Years of Backend Experience" },
   { value: "3", label: "Production Backend Roles" },
   { value: "15+", label: "Technologies in Daily Stack" },
   { value: "5", label: "Key Projects Designed & Built" },
@@ -89,7 +89,7 @@ export const heroStats = [
 
 export const about = {
   paragraph1:
-    "I'm a backend developer with 4+ years of experience building scalable, production-ready web applications with Python. My work covers the full backend lifecycle: designing RESTful APIs and backend architecture, modeling and optimizing databases, wiring caching and messaging layers, and shipping everything through Docker, CI/CD pipelines, and Linux infrastructure.",
+    "I'm a backend developer with 5+ years of experience building scalable, production-ready web applications with Python. My work covers the full backend lifecycle: designing RESTful APIs and backend architecture, modeling and optimizing databases, wiring caching and messaging layers, and shipping everything through Docker, CI/CD pipelines, and Linux infrastructure.",
   paragraph2:
     "I've built and maintained backend systems for high-traffic e-commerce and fintech products, worked on complex financial workflows, integrated third-party payment gateways, implemented authentication and asynchronous processing, and refactored legacy monoliths into modular, testable architectures. Day to day I work with FastAPI, Django, and Django REST Framework — always with a focus on clean architecture, high-performance APIs, and systems that stay reliable in production.",
   highlights: [

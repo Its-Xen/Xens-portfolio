@@ -25,7 +25,7 @@ const codeLines: { text: string; cls: string }[][] = [
   [{ text: "    return", cls: "text-slate-100" }, { text: " {", cls: "text-slate-500" }],
   [{ text: "        \"stack\"", cls: "text-[#b6c0cf]" }, { text: ": [", cls: "text-slate-500" }, { text: "\"Python\"", cls: "text-[#b6c0cf]" }, { text: ", ", cls: "text-slate-500" }, { text: "\"FastAPI\"", cls: "text-[#b6c0cf]" }, { text: ", ", cls: "text-slate-500" }, { text: "\"Django\"", cls: "text-[#b6c0cf]" }, { text: "],", cls: "text-slate-500" }],
   [{ text: "        \"databases\"", cls: "text-[#b6c0cf]" }, { text: ": ", cls: "text-slate-500" }, { text: "\"PostgreSQL · Redis\"", cls: "text-[#b6c0cf]" }, { text: ",", cls: "text-slate-500" }],
-  [{ text: "        \"experience\"", cls: "text-[#b6c0cf]" }, { text: ": ", cls: "text-slate-500" }, { text: "\"4+ years\"", cls: "text-[#b6c0cf]" }, { text: ",", cls: "text-slate-500" }],
+  [{ text: "        \"experience\"", cls: "text-[#b6c0cf]" }, { text: ": ", cls: "text-slate-500" }, { text: "\"5+ years\"", cls: "text-[#b6c0cf]" }, { text: ",", cls: "text-slate-500" }],
   [{ text: "        \"status\"", cls: "text-[#b6c0cf]" }, { text: ": ", cls: "text-slate-500" }, { text: "\"open to opportunities\"", cls: "text-[#b6c0cf]" }, { text: ",", cls: "text-slate-500" }],
   [{ text: "    }", cls: "text-slate-500" }],
 ];

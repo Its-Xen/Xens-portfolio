@@ -189,3 +189,20 @@ Stage Summary:
 - Toolbox now: Languages 5 (Python, SQL, JS, Ruby, Rust), Databases & Caching 9 (PG, MySQL, SQLite, MongoDB, Oracle, Redis, Memcached, Valkey, Elasticsearch), Infrastructure 7 (Docker, Nginx, Apache, Linux, Git, GitHub Actions, CI/CD)
 - Bonus fix: 3 brand-black icons now visible in dark mode via dark:invert
 - out/ rebuilt, ready for push/deploy
+
+---
+Task ID: 11
+Agent: main (Z.ai)
+Task: Redesign Books section to match user's wireframe (minimal horizontal cards: cover left, "title — author" right, organized grid) + change 4+ to 5+ years of experience.
+
+Work Log:
+- Rewrote reading-list.tsx per sketch: 3-col grid (sm:2) of h-24 horizontal cards; uniform 72×96 cover slot (object-cover over gradient fallback with spine highlights); title (line-clamp-2) + mono author right; whole card is the link with hover lift/border/shine
+- Removed old vertical cards with notes/category pills; big stats card replaced by slim footer strip: "13 books — read & owned..." + Suggest a book CTA (Library icon + link to #contact)
+- Books data untouched (notes/category retained in data, just not shown)
+- 4+ → 5+ in all 3 places: heroStats value, about paragraph1, hero code window "experience" line; verified zero "4+" remnants via grep
+- lint + build clean; verified dark screenshots (grid rows + footer strip + stats bar 5+ + code window) and light screenshot of grid; console clean; dark default restored; server stopped
+
+Stage Summary:
+- Books section now mirrors the wireframe: minimal, organized, perfectly aligned covers
+- Experience updated to 5+ years everywhere
+- out/ rebuilt, ready for push/deploy
