@@ -55,7 +55,7 @@ export interface NavLink {
 
 export const profile = {
   name: "Parsa Nazari",
-  firstName: "Parsa",
+  firstName: "Xen",
   role: "Backend Developer",
   specialization: "Python & FastAPI",
   tagline:
