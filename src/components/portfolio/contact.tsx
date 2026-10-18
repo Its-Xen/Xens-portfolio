@@ -285,7 +285,7 @@ export function Contact() {
               <button
                 type="submit"
                 disabled={sending}
-                className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-cyan-500 to-violet-500 px-6 py-4 text-sm font-semibold text-white shadow-lg shadow-glow/30 transition-all hover:-translate-y-0.5 hover:shadow-xl hover:shadow-glow/50 disabled:cursor-not-allowed disabled:opacity-60 disabled:hover:translate-y-0 sm:w-auto sm:px-10"
+                className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-glow to-nebula px-6 py-4 text-sm font-semibold text-primary-foreground shadow-lg shadow-glow/30 transition-all hover:-translate-y-0.5 hover:shadow-xl hover:shadow-glow/50 disabled:cursor-not-allowed disabled:opacity-60 disabled:hover:translate-y-0 sm:w-auto sm:px-10"
               >
                 {sending ? (
                   <>

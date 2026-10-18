@@ -16,17 +16,17 @@ import { heroStats, profile } from "@/lib/portfolio-data";
 
 /** Hand-tinted FastAPI snippet — tokens pre-colored, no runtime highlighter needed. */
 const codeLines: { text: string; cls: string }[][] = [
-  [{ text: "from", cls: "text-fuchsia-400" }, { text: " fastapi ", cls: "text-sky-200" }, { text: "import", cls: "text-fuchsia-400" }, { text: " FastAPI", cls: "text-sky-200" }],
+  [{ text: "from", cls: "text-sky-300" }, { text: " fastapi ", cls: "text-slate-200" }, { text: "import", cls: "text-sky-300" }, { text: " FastAPI", cls: "text-slate-200" }],
   [{ text: "", cls: "" }],
-  [{ text: "app", cls: "text-sky-200" }, { text: " = ", cls: "text-navy-200" }, { text: "FastAPI", cls: "text-yellow-300" }, { text: "(title=", cls: "text-navy-200" }, { text: "\"Parsa Nazari — Backend\"", cls: "text-emerald-300" }, { text: ")", cls: "text-navy-200" }],
+  [{ text: "app", cls: "text-slate-200" }, { text: " = ", cls: "text-navy-200" }, { text: "FastAPI", cls: "text-[#8fbcbb]" }, { text: "(title=", cls: "text-navy-200" }, { text: "\"Parsa Nazari — Backend\"", cls: "text-[#a3be8c]" }, { text: ")", cls: "text-navy-200" }],
   [{ text: "", cls: "" }],
-  [{ text: "@app.get", cls: "text-cyan-300" }, { text: "(", cls: "text-navy-200" }, { text: "\"/profile\"", cls: "text-emerald-300" }, { text: ")", cls: "text-navy-200" }],
-  [{ text: "async def", cls: "text-fuchsia-400" }, { text: " profile", cls: "text-sky-200" }, { text: "() -> ", cls: "text-navy-200" }, { text: "dict", cls: "text-yellow-300" }, { text: ":", cls: "text-navy-200" }],
-  [{ text: "    return", cls: "text-fuchsia-400" }, { text: " {", cls: "text-navy-200" }],
-  [{ text: "        \"stack\"", cls: "text-emerald-300" }, { text: ": [", cls: "text-navy-200" }, { text: "\"Python\"", cls: "text-emerald-300" }, { text: ", ", cls: "text-navy-200" }, { text: "\"FastAPI\"", cls: "text-emerald-300" }, { text: ", ", cls: "text-navy-200" }, { text: "\"Django\"", cls: "text-emerald-300" }, { text: "],", cls: "text-navy-200" }],
-  [{ text: "        \"databases\"", cls: "text-emerald-300" }, { text: ": ", cls: "text-navy-200" }, { text: "\"PostgreSQL · Redis\"", cls: "text-emerald-300" }, { text: ",", cls: "text-navy-200" }],
-  [{ text: "        \"experience\"", cls: "text-emerald-300" }, { text: ": ", cls: "text-navy-200" }, { text: "\"4+ years\"", cls: "text-emerald-300" }, { text: ",", cls: "text-navy-200" }],
-  [{ text: "        \"status\"", cls: "text-emerald-300" }, { text: ": ", cls: "text-navy-200" }, { text: "\"open to opportunities\"", cls: "text-emerald-300" }, { text: ",", cls: "text-navy-200" }],
+  [{ text: "@app.get", cls: "text-[#88c0d0]" }, { text: "(", cls: "text-navy-200" }, { text: "\"/profile\"", cls: "text-[#a3be8c]" }, { text: ")", cls: "text-navy-200" }],
+  [{ text: "async def", cls: "text-sky-300" }, { text: " profile", cls: "text-slate-200" }, { text: "() -> ", cls: "text-navy-200" }, { text: "dict", cls: "text-[#8fbcbb]" }, { text: ":", cls: "text-navy-200" }],
+  [{ text: "    return", cls: "text-sky-300" }, { text: " {", cls: "text-navy-200" }],
+  [{ text: "        \"stack\"", cls: "text-[#a3be8c]" }, { text: ": [", cls: "text-navy-200" }, { text: "\"Python\"", cls: "text-[#a3be8c]" }, { text: ", ", cls: "text-navy-200" }, { text: "\"FastAPI\"", cls: "text-[#a3be8c]" }, { text: ", ", cls: "text-navy-200" }, { text: "\"Django\"", cls: "text-[#a3be8c]" }, { text: "],", cls: "text-navy-200" }],
+  [{ text: "        \"databases\"", cls: "text-[#a3be8c]" }, { text: ": ", cls: "text-navy-200" }, { text: "\"PostgreSQL · Redis\"", cls: "text-[#a3be8c]" }, { text: ",", cls: "text-navy-200" }],
+  [{ text: "        \"experience\"", cls: "text-[#a3be8c]" }, { text: ": ", cls: "text-navy-200" }, { text: "\"4+ years\"", cls: "text-[#a3be8c]" }, { text: ",", cls: "text-navy-200" }],
+  [{ text: "        \"status\"", cls: "text-[#a3be8c]" }, { text: ": ", cls: "text-navy-200" }, { text: "\"open to opportunities\"", cls: "text-[#a3be8c]" }, { text: ",", cls: "text-navy-200" }],
   [{ text: "    }", cls: "text-navy-200" }],
 ];
 
@@ -79,7 +79,7 @@ export function Hero() {
             <motion.div
               {...fadeUp}
               transition={{ duration: 0.5 }}
-              className="mb-6 inline-flex items-center gap-2 rounded-full border border-emerald-500/40 bg-emerald-500/10 px-3.5 py-1.5 text-xs font-medium text-emerald-700 dark:border-emerald-400/30 dark:bg-emerald-400/10 dark:text-emerald-300"
+              className="mb-6 inline-flex items-center gap-2 rounded-full border border-emerald-500/40 bg-emerald-500/10 px-3.5 py-1.5 text-xs font-medium text-emerald-700 dark:border-emerald-400/30 dark:bg-emerald-400/10 dark:text-[#a3be8c]"
             >
               <span className="relative flex size-2">
                 <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-500 opacity-60 dark:bg-emerald-400" />
@@ -132,7 +132,7 @@ export function Hero() {
             >
               <a
                 href="#projects"
-                className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-cyan-500 to-violet-500 px-6 py-3.5 text-sm font-semibold text-white shadow-lg shadow-glow/30 transition-all hover:-translate-y-0.5 hover:shadow-xl hover:shadow-glow/50"
+                className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-glow to-nebula px-6 py-3.5 text-sm font-semibold text-primary-foreground shadow-lg shadow-glow/30 transition-all hover:-translate-y-0.5 hover:shadow-xl hover:shadow-glow/50"
               >
                 <Rocket className="size-4" aria-hidden="true" />
                 View My Work
@@ -256,7 +256,7 @@ export function Hero() {
               transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
               className="absolute -bottom-6 -right-6 rounded-xl border border-glow/30 bg-hull/95 px-4 py-2.5 shadow-xl backdrop-blur"
             >
-              <p className="font-mono text-xs text-emerald-300">Docker · CI/CD</p>
+              <p className="font-mono text-xs text-[#a3be8c]">Docker · CI/CD</p>
               <p className="text-[10px] text-navy-200/60">shipped with GitHub Actions</p>
             </motion.div>
           </motion.div>

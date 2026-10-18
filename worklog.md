@@ -127,3 +127,24 @@ Work Log:
 Stage Summary:
 - Missions section now shows 5 projects: 4 Completed + 1 In Progress (Eveto only), filters derive from data as before
 - Static export out/ rebuilt and ready for the user's manual git push + Cloudflare Pages deploy
+
+---
+Task ID: 8
+Agent: Main agent (Z.ai)
+Task: Replace rainbow (cyan->violet->pink) accent gradients with elegant "Ice & Silver" palette (user picked: Ice & Silver / subtle same-family gradient / balanced intensity)
+
+Work Log:
+- Confirmed direction via 3-question batch (palette / gradient style / intensity); user chose Ice & Silver (#a9c9ea -> #eef4fb family), same-family gradients, balanced presence
+- globals.css token retune: dark --glow #22d3ee->#a9c9ea (glacier ice), --nebula #a78bfa->#e4edf9 (silver frost), --flare #e879f9->#7fa8d6 (steel blue), --primary #b9d4f0, rings + --star-glow rgba(169,201,234,.16); light --glow #0891b2->#3d6d9e, --nebula #4a719c (AA-checked vs white text), --flare #7d9cc0, rings + --star-glow; token comments + .text-gradient-cosmic comment updated (ice -> silver -> steel, no hue jumps)
+- Buttons (6): navbar Hire Me x2, hero View My Work, footer back-to-top, contact submit, projects active filter pill -> from-glow to-nebula + text-primary-foreground (auto-flips: dark = pale ice gradient + navy text, light = steel gradient + white text); active pill count badge bg-white/25 text-white -> bg-black/15 text-current for contrast on pale gradient
+- about.tsx highlight icon tiles -> gradient-to-br from-glow to-nebula text-primary-foreground
+- Hero code window syntax retinted Nord-style: keywords fuchsia-400 -> sky-300, identifiers sky-200 -> slate-200, types yellow-300 -> #8fbcbb frost, strings emerald-300 -> #a3be8c sage, decorator cyan-300 -> #88c0d0; Docker chip emerald-300 -> #a3be8c; traffic lights + emerald status dots kept (semantic)
+- starfield.tsx: indigo star rgba(165,180,252) -> silver rgba(203,219,240), cyan star rgba(103,232,249) -> ice rgba(169,201,234), meteor tail same ice
+- favicon.svg: gradient #22d3ee/#a78bfa -> #a9c9ea/#e4edf9, satellite #e879f9 -> #7fa8d6
+- Kept semantic colors untouched: emerald/amber/violet status badges, emerald availability + server dots, traffic lights, brand tech logo colors, per-book cover gradients
+- Verified: build + eslint clean; old hexes (22d3ee/a78bfa/e879f9/06b6d4) absent from built CSS; browser dark hero + missions (ice name gradient, chrome-ice CTAs, ice filter pill, silver/ice/white stars, Nord code window) and light hero (steel gradient name/CTAs readable) all correct; theme toggle round-trip + localStorage persistence OK; no console errors; theme restored to dark (site default)
+
+Stage Summary:
+- Site accent system is now "Glacier" Ice & Silver: one blue family, subtle two-tone gradients, zero rainbow
+- All accents flow from 3 CSS vars (--glow/--nebula/--flare) in globals.css - further retunes are a 6-line edit
+- out/ rebuilt, ready for git push + Cloudflare Pages redeploy

@@ -94,7 +94,7 @@ export function Projects() {
                 className={cn(
                   "inline-flex items-center gap-2 rounded-full border px-4 py-2 text-sm font-medium transition-all",
                   active
-                    ? "border-transparent bg-gradient-to-r from-cyan-500 to-violet-500 text-white shadow-lg shadow-glow/30"
+                    ? "border-transparent bg-gradient-to-r from-glow to-nebula text-primary-foreground shadow-lg shadow-glow/30"
                     : "border-line bg-panel/70 text-ink hover:border-glow/45 hover:bg-glow/10 hover:text-glow"
                 )}
               >
@@ -110,7 +110,7 @@ export function Projects() {
                 <span
                   className={cn(
                     "rounded-full px-1.5 py-0.5 font-mono text-[10px] leading-none",
-                    active ? "bg-white/25 text-white" : "bg-secondary text-ink-muted"
+                    active ? "bg-black/15 text-current" : "bg-secondary text-ink-muted"
                   )}
                 >
                   {counts[f]}

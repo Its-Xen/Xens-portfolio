@@ -73,7 +73,7 @@ export function Footer() {
               <a
                 href="#hero"
                 aria-label="Back to top"
-                className="ml-2 grid size-10 place-items-center rounded-lg bg-gradient-to-r from-cyan-500 to-violet-500 text-white transition-all hover:-translate-y-0.5 hover:shadow-lg hover:shadow-glow/40"
+                className="ml-2 grid size-10 place-items-center rounded-lg bg-gradient-to-r from-glow to-nebula text-primary-foreground transition-all hover:-translate-y-0.5 hover:shadow-lg hover:shadow-glow/40"
               >
                 <ArrowUp className="size-4.5" />
               </a>

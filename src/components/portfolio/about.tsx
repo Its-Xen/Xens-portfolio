@@ -61,7 +61,7 @@ export function About() {
               return (
                 <Reveal key={item.title} delay={0.08 * i}>
                   <article className="group h-full rounded-2xl border border-line bg-panel/70 p-6 backdrop-blur transition-all hover:-translate-y-1 hover:border-glow/45 hover:shadow-lg hover:shadow-glow/10">
-                    <span className="mb-4 grid size-11 place-items-center rounded-xl bg-gradient-to-br from-cyan-500 to-violet-500 text-white shadow-md shadow-glow/25 transition-transform group-hover:scale-105">
+                    <span className="mb-4 grid size-11 place-items-center rounded-xl bg-gradient-to-br from-glow to-nebula text-primary-foreground shadow-md shadow-glow/25 transition-transform group-hover:scale-105">
                       <Icon className="size-5" aria-hidden="true" />
                     </span>
                     <h3 className="font-[family-name:var(--font-display)] text-base font-semibold text-ink-heading">

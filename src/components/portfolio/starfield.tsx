@@ -86,9 +86,9 @@ export function Starfield() {
         ctx!.arc(s.x, s.y, s.r, 0, Math.PI * 2);
         ctx!.fillStyle = dark
           ? s.tint > 0.86
-            ? `rgba(165,180,252,${a})` // indigo star
+            ? `rgba(203,219,240,${a})` // silver star
             : s.tint > 0.7
-              ? `rgba(103,232,249,${a * 0.9})` // cyan star
+              ? `rgba(169,201,234,${a * 0.9})` // glacier-ice star
               : `rgba(255,255,255,${a})` // classic white
           : `rgba(28,42,74,${a})`;
         ctx!.fill();
@@ -117,8 +117,8 @@ export function Starfield() {
           const tailY = m.y - m.vy * 13;
           const grad = ctx!.createLinearGradient(m.x, m.y, tailX, tailY);
           grad.addColorStop(0, `rgba(255,255,255,${0.85 * fade})`);
-          grad.addColorStop(0.3, `rgba(103,232,249,${0.5 * fade})`);
-          grad.addColorStop(1, "rgba(103,232,249,0)");
+          grad.addColorStop(0.3, `rgba(169,201,234,${0.5 * fade})`);
+          grad.addColorStop(1, "rgba(169,201,234,0)");
           ctx!.strokeStyle = grad;
           ctx!.lineWidth = 1.6;
           ctx!.lineCap = "round";
