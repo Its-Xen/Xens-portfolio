@@ -39,10 +39,10 @@ export interface Book {
 export const profile = {
   name: "Arman Rezaei",
   firstName: "Arman",
-  role: "Backend Engineer",
-  specialization: "FastAPI · Python · Cloud-Native APIs",
+  role: "Software Engineer",
+  specialization: "Python · FastAPI · Django",
   tagline:
-    "I design and build fast, scalable APIs that turn ambitious ideas into production-grade products — clean architecture, type safety, and performance first.",
+    "I design and build fast, scalable backend systems with Python — production-grade APIs with FastAPI today, full-featured products with Django, and Rust on the roadmap. Clean architecture, type safety, and performance first.",
   location: "Tehran, Iran · Open to Remote",
   email: "arman.rezaei.dev@gmail.com",
   github: "https://github.com/armanrezaei-dev",
@@ -63,9 +63,9 @@ export const heroStats = [
 
 export const about = {
   paragraph1:
-    "I'm a backend engineer with 4+ years of experience designing and shipping high-performance services with Python and FastAPI. My journey started with a curiosity about how the web talks to itself — that curiosity grew into a career building the systems that power products used by thousands of people every day.",
+    "I'm a software engineer with 4+ years of experience designing and shipping high-performance backend systems in Python. My journey started with a curiosity about how the web talks to itself — that curiosity grew into a career building the services that power products used by thousands of people every day.",
   paragraph2:
-    "I care deeply about the craft of backend development: APIs that are self-documenting, schemas that are type-safe from database to response, and infrastructure that scales without drama. From REST and WebSocket services on FastAPI to async pipelines with Celery and Redis, I obsess over latency budgets, clean architecture, and the kind of developer experience that makes teams faster.",
+    "I care deeply about the craft of backend engineering: APIs that are self-documenting, schemas that are type-safe from database to response, and infrastructure that scales without drama. I build async, high-throughput services with FastAPI and batteries-included products with Django — obsessing over latency budgets, clean architecture, and the kind of developer experience that makes teams faster. Next chapter: Rust.",
   highlights: [
     {
       title: "API Architecture",
@@ -116,7 +116,7 @@ export const projects: Project[] = [
     description:
       "A headless commerce engine powering multiple storefronts from one API: product catalog with faceted search, inventory synchronization, Stripe payments with idempotent webhooks, and aggressive rate limiting on public endpoints.",
     status: "Completed",
-    tech: ["FastAPI", "SQLAlchemy 2.0", "PostgreSQL", "Stripe", "Nginx", "AWS"],
+    tech: ["Django", "DRF", "PostgreSQL", "Stripe", "Nginx", "AWS"],
     highlights: [
       "Idempotent payment webhooks — zero double charges in production",
       "Catalog search under 80 ms on 50k+ products",
@@ -205,6 +205,7 @@ export const techGroups: TechGroup[] = [
     icon: "layers",
     items: [
       { name: "FastAPI", monogram: "Fa", color: "#009688" },
+      { name: "Django", monogram: "Dj", color: "#092e20" },
       { name: "Pydantic v2", monogram: "Pd", color: "#e92063" },
       { name: "SQLAlchemy", monogram: "Sa", color: "#d71f00" },
       { name: "Celery", monogram: "Ce", color: "#37814a" },

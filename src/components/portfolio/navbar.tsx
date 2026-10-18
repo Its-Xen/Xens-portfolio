@@ -48,7 +48,7 @@ export function Navbar() {
             {profile.name}
             <span className="hidden sm:inline text-navy-200/70 font-normal">
               {" "}
-              · backend
+              · engineer
             </span>
           </span>
         </a>

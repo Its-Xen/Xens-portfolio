@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { z } from "zod";
-import { db } from "@/lib/db";
+import { saveContactMessage } from "@/lib/contact-store";
+import { notifyNewMessage } from "@/lib/notify";
 
 const contactSchema = z.object({
   name: z
@@ -33,10 +34,13 @@ export async function POST(request: NextRequest) {
     }
 
     const { name, email, message } = parsed.data;
+    const input = { name, email, message };
 
-    const saved = await db.contactMessage.create({
-      data: { name, email, message },
-    });
+    // 1) Persist (D1 on Cloudflare, SQLite locally)
+    const saved = await saveContactMessage(input);
+
+    // 2) Fan out notifications — never throws, safe to await
+    await notifyNewMessage(input);
 
     return NextResponse.json({
       ok: true,

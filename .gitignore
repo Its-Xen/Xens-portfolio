@@ -32,6 +32,7 @@ yarn-error.log*
 
 # env files (can opt-in for committing if needed)
 .env*
+.dev.vars
 
 # vercel
 .vercel
@@ -52,3 +53,23 @@ prompt
 server.log
 # Skills directory
 /skills/
+
+# ── Local SQLite (Prisma fallback for local dev) ──
+/db/*.db
+/db/*.db-journal
+
+# ── Cloudflare ──
+/.open-next/
+/.wrangler/
+worker-*.d.ts
+
+# ── Sandbox / workspace artifacts (not part of the app) ──
+/.zscripts/
+/worklog.md
+/agent-ctx/
+/download/
+/Caddyfile
+/examples/
+/tests/
+/scripts/
+verify-*.png

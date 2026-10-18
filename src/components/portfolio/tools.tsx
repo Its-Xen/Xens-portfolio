@@ -30,7 +30,7 @@ export function Tools() {
           index="03"
           eyebrow="Tools & Technologies"
           title="My engineering toolbox"
-          description="The stack I reach for daily to design, build, test, and operate backend systems — centered on the Python/FastAPI ecosystem."
+          description="The stack I reach for daily to design, build, test, and operate backend systems — centered on the Python ecosystem with FastAPI and Django at the core."
         />
 
         <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
@@ -103,8 +103,7 @@ export function Tools() {
                 </ul>
               </div>
               <p className="mt-6 border-t border-white/10 pt-4 font-mono text-xs text-navy-200/60">
-                &gt; currently exploring: Rust + async runtimes · gRPC · event
-                sourcing
+                &gt; currently exploring: Rust (the next chapter) · async runtimes · event-driven systems
               </p>
             </article>
           </Reveal>

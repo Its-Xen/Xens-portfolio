@@ -20,8 +20,9 @@ export function Footer() {
               {profile.name}
             </a>
             <p className="mt-4 text-sm leading-relaxed text-navy-200/60">
-              Backend engineer building fast, reliable APIs with FastAPI and
-              Python. Open to new opportunities and interesting problems.
+              Software engineer building fast, reliable backend systems with
+              Python, FastAPI &amp; Django. Open to new opportunities and
+              interesting problems.
             </p>
           </div>
 
