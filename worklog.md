@@ -72,3 +72,19 @@ Work Log:
 
 Stage Summary:
 - Site fully verified visually end-to-end; static server left running on port 3000 in this sandbox session
+
+---
+Task ID: 5
+Agent: Main agent (Z.ai)
+Task: Shorten header meta description + add real book cover photos and real tech icons
+
+Work Log:
+- layout.tsx: meta + OG description shortened to one line ("Portfolio of Parsa Nazari — Backend Developer building scalable, production-ready systems with Python, FastAPI & Django.") — no more tech-stack dump
+- Book covers: Open Library + Google Books unreachable/429 from sandbox; used image-search skill over 5 rounds (parallel → sequential w/ delays for 429s), reviewed candidate contact sheets visually, manually picked 13 real covers into public/covers/<id>.jpg; specials: fluent-python letterbox bars auto-trimmed, nginx-cookbook extracted from white banner (trim), ddia swapped to product shot, ddd white margins trimmed. ~500KB total, committed to repo = fully static, no external hotlinks
+- Tech icons: cdn.simpleicons.org Cloudflare-blocked (403); installed simple-icons npm package in /tmp, copied 16 brand SVGs (python, fastapi, django, pydantic, jsonwebtokens, openapiinitiative, postgresql, mysql, redis, apachekafka, docker, nginx, linux, git, githubactions, selenium) into public/tech/ with brand-color fill injected; monogram tiles remain for logo-less concepts (SQL, DRF, Channels, SQLAlchemy, CI/CD, etc.)
+- Data model: Book.cover?, TechGroup items icon? added in portfolio-data.ts; reading-list.tsx renders real photo over gradient fallback (onError removes img → fallback shows; section now "use client" for the handler); tools.tsx renders brand logo in color-tinted square, monogram fallback
+- Verified: bun run build + eslint clean; out/ contains 13 covers + 16 svgs; browser screenshots — tools grid shows real logos, all 13 book covers render; meta description short; no console errors
+
+Stage Summary:
+- Reading List now shows real cover photos; Tools shows real brand icons; SEO description one line
+- All assets self-hosted in public/ — nothing external, still 100% static for Cloudflare Pages

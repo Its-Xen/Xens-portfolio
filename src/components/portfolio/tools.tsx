@@ -59,15 +59,31 @@ export function Tools() {
                         className="group/tile flex items-center gap-2.5 rounded-xl border border-navy-100 bg-white py-2 pl-2 pr-3.5 transition-all hover:-translate-y-0.5 hover:border-navy-200 hover:shadow-md"
                         title={item.name}
                       >
-                        <span
-                          className="grid size-8 shrink-0 place-items-center rounded-lg font-mono text-[11px] font-bold text-white shadow-sm"
-                          style={{
-                            background: `linear-gradient(135deg, ${item.color} 0%, ${item.color}cc 100%)`,
-                          }}
-                          aria-hidden="true"
-                        >
-                          {item.monogram}
-                        </span>
+                        {item.icon ? (
+                          <span
+                            className="grid size-8 shrink-0 place-items-center rounded-lg"
+                            style={{
+                              background: `linear-gradient(135deg, ${item.color}1f 0%, ${item.color}0d 100%)`,
+                            }}
+                          >
+                            <img
+                              src={`/tech/${item.icon}.svg`}
+                              alt=""
+                              loading="lazy"
+                              className="size-5"
+                            />
+                          </span>
+                        ) : (
+                          <span
+                            className="grid size-8 shrink-0 place-items-center rounded-lg font-mono text-[11px] font-bold text-white shadow-sm"
+                            style={{
+                              background: `linear-gradient(135deg, ${item.color} 0%, ${item.color}cc 100%)`,
+                            }}
+                            aria-hidden="true"
+                          >
+                            {item.monogram}
+                          </span>
+                        )}
                         <span className="text-sm font-medium text-navy-800">
                           {item.name}
                         </span>

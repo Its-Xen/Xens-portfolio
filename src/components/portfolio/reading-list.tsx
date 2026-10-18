@@ -1,3 +1,5 @@
+"use client";
+
 import { BookOpen, Library, Mail } from "lucide-react";
 import { books } from "@/lib/portfolio-data";
 import { SectionHeading } from "./section-heading";
@@ -33,7 +35,7 @@ export function ReadingList() {
                     background: `linear-gradient(150deg, ${book.gradient[0]} 0%, ${book.gradient[1]} 100%)`,
                   }}
                 >
-                  {/* spine highlights */}
+                  {/* fallback: spine highlights + title/author (hidden behind the photo when it loads) */}
                   <span
                     className="absolute inset-y-0 left-0 w-1.5 bg-white/20"
                     aria-hidden="true"
@@ -46,14 +48,7 @@ export function ReadingList() {
                     className="absolute inset-y-0 right-0 w-3 bg-black/10"
                     aria-hidden="true"
                   />
-
-                  {/* category */}
-                  <span className="absolute left-4 right-3 top-3.5 font-mono text-[9px] uppercase tracking-[0.18em] text-white/65">
-                    {book.category}
-                  </span>
-
-                  {/* title & author */}
-                  <span className="absolute inset-x-0 bottom-0 block bg-gradient-to-t from-black/50 via-black/25 to-transparent p-4 pt-10">
+                  <span className="absolute inset-x-0 bottom-0 block bg-gradient-to-t from-black/60 via-black/25 to-transparent p-4 pt-10">
                     <span className="block font-[family-name:var(--font-display)] text-sm font-semibold leading-snug text-white">
                       {book.title}
                     </span>
@@ -62,9 +57,27 @@ export function ReadingList() {
                     </span>
                   </span>
 
+                  {/* real cover photo — on error it is removed and the gradient fallback shows */}
+                  {book.cover && (
+                    <img
+                      src={book.cover}
+                      alt={`Book cover: ${book.title} by ${book.author}`}
+                      loading="lazy"
+                      className="absolute inset-0 h-full w-full object-cover"
+                      onError={(e) => {
+                        e.currentTarget.style.display = "none";
+                      }}
+                    />
+                  )}
+
+                  {/* category pill (stays readable over any cover photo) */}
+                  <span className="absolute left-2.5 top-2.5 z-10 rounded-md bg-navy-950/55 px-2 py-1 font-mono text-[9px] uppercase tracking-[0.18em] text-white/85 backdrop-blur-sm">
+                    {book.category}
+                  </span>
+
                   {/* hover shine */}
                   <span
-                    className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/0 to-white/0 transition-all duration-500 group-hover/cover:via-white/15"
+                    className="absolute inset-0 z-10 bg-gradient-to-tr from-transparent via-white/0 to-white/0 transition-all duration-500 group-hover/cover:via-white/15"
                     aria-hidden="true"
                   />
                 </a>

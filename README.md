@@ -26,6 +26,8 @@ GitHub Pages, Netlify, Nginx…).
 - **Next.js 16** (App Router, static export via `output: "export"`)
 - **TypeScript 5** + **Tailwind CSS 4** + **shadcn/ui**
 - **Framer Motion** (animations) + **lucide-react** (icons)
+- Real assets baked in: book covers in `public/covers/` (gradient CSS fallback if a file is missing),
+  brand tech logos in `public/tech/` (from the `simple-icons` package, brand-colored)
 - Zero backend — `next build` emits a self-contained `out/` folder
 
 ## Run Locally

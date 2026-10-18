@@ -23,7 +23,7 @@ const spaceGrotesk = Space_Grotesk({
 export const metadata: Metadata = {
   title: "Parsa Nazari — Backend Developer | Python & FastAPI",
   description:
-    "Portfolio of Parsa Nazari, a backend developer with 4+ years of experience building scalable, production-ready systems with Python, FastAPI, and Django. RESTful APIs, PostgreSQL, Redis, Kafka, Docker, CI/CD.",
+    "Portfolio of Parsa Nazari — Backend Developer building scalable, production-ready systems with Python, FastAPI & Django.",
   keywords: [
     "Backend Developer",
     "Python",
@@ -45,7 +45,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Parsa Nazari — Backend Developer",
     description:
-      "Backend developer with 4+ years of experience building scalable, production-ready systems with Python — FastAPI, Django, PostgreSQL, Redis, Kafka.",
+      "Backend Developer — scalable, production-ready systems with Python, FastAPI & Django.",
     type: "website",
   },
 };

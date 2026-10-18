@@ -24,7 +24,7 @@ export interface Project {
 export interface TechGroup {
   category: string;
   icon: string; // lucide icon key resolved in the component
-  items: { name: string; monogram: string; color: string }[];
+  items: { name: string; monogram: string; color: string; icon?: string }[];
 }
 
 export interface ExperienceItem {
@@ -41,8 +41,10 @@ export interface Book {
   author: string;
   category: string;
   note: string;
-  /** Gradient for the CSS book cover: [from, to] */
+  /** Gradient for the CSS book cover: [from, to] — used as fallback when no photo */
   gradient: [string, string];
+  /** Real cover photo under /public/covers — optional, gradient is the fallback */
+  cover?: string;
   link?: string;
 }
 
@@ -226,7 +228,7 @@ export const techGroups: TechGroup[] = [
     category: "Languages",
     icon: "code",
     items: [
-      { name: "Python", monogram: "Py", color: "#3776ab" },
+      { name: "Python", monogram: "Py", color: "#3776ab", icon: "python" },
       { name: "SQL", monogram: "Sq", color: "#e38c00" },
     ],
   },
@@ -234,30 +236,30 @@ export const techGroups: TechGroup[] = [
     category: "Backend & APIs",
     icon: "layers",
     items: [
-      { name: "FastAPI", monogram: "Fa", color: "#009688" },
-      { name: "Django", monogram: "Dj", color: "#092e20" },
+      { name: "FastAPI", monogram: "Fa", color: "#009688", icon: "fastapi" },
+      { name: "Django", monogram: "Dj", color: "#092e20", icon: "django" },
       { name: "Django REST Framework", monogram: "Dr", color: "#a30000" },
       { name: "Django Channels", monogram: "Ch", color: "#0c7c59" },
-      { name: "Pydantic", monogram: "Pd", color: "#e92063" },
+      { name: "Pydantic", monogram: "Pd", color: "#e92063", icon: "pydantic" },
       { name: "SQLAlchemy", monogram: "Sa", color: "#d71f00" },
-      { name: "JWT Authentication", monogram: "Jw", color: "#000000" },
-      { name: "OpenAPI", monogram: "Oa", color: "#6ba539" },
+      { name: "JWT Authentication", monogram: "Jw", color: "#000000", icon: "jsonwebtokens" },
+      { name: "OpenAPI", monogram: "Oa", color: "#6ba539", icon: "openapiinitiative" },
     ],
   },
   {
     category: "Databases & Caching",
     icon: "database",
     items: [
-      { name: "PostgreSQL", monogram: "Pg", color: "#336791" },
-      { name: "MySQL", monogram: "My", color: "#00758f" },
-      { name: "Redis", monogram: "Re", color: "#dc382d" },
+      { name: "PostgreSQL", monogram: "Pg", color: "#336791", icon: "postgresql" },
+      { name: "MySQL", monogram: "My", color: "#00758f", icon: "mysql" },
+      { name: "Redis", monogram: "Re", color: "#dc382d", icon: "redis" },
     ],
   },
   {
     category: "Messaging & Architecture",
     icon: "workflow",
     items: [
-      { name: "Kafka", monogram: "Kf", color: "#231f20" },
+      { name: "Kafka", monogram: "Kf", color: "#231f20", icon: "apachekafka" },
       { name: "Event-Driven Architecture", monogram: "Ev", color: "#7c3aed" },
       { name: "Clean Architecture", monogram: "Cl", color: "#0e7490" },
       { name: "Microservices", monogram: "Mi", color: "#4f46e5" },
@@ -268,11 +270,11 @@ export const techGroups: TechGroup[] = [
     category: "Infrastructure & DevOps",
     icon: "container",
     items: [
-      { name: "Docker", monogram: "Dk", color: "#2496ed" },
-      { name: "Nginx", monogram: "Nx", color: "#009639" },
-      { name: "Linux", monogram: "Li", color: "#fcc624" },
-      { name: "Git", monogram: "Gt", color: "#f05032" },
-      { name: "GitHub Actions", monogram: "Gh", color: "#181717" },
+      { name: "Docker", monogram: "Dk", color: "#2496ed", icon: "docker" },
+      { name: "Nginx", monogram: "Nx", color: "#009639", icon: "nginx" },
+      { name: "Linux", monogram: "Li", color: "#fcc624", icon: "linux" },
+      { name: "Git", monogram: "Gt", color: "#f05032", icon: "git" },
+      { name: "GitHub Actions", monogram: "Gh", color: "#181717", icon: "githubactions" },
       { name: "CI/CD", monogram: "Ci", color: "#059669" },
     ],
   },
@@ -280,7 +282,7 @@ export const techGroups: TechGroup[] = [
     category: "Other",
     icon: "flask",
     items: [
-      { name: "Selenium", monogram: "Se", color: "#43b02a" },
+      { name: "Selenium", monogram: "Se", color: "#43b02a", icon: "selenium" },
       { name: "Beautiful Soup", monogram: "Bs", color: "#3b82f6" },
     ],
   },
@@ -318,6 +320,7 @@ export const books: Book[] = [
     category: "Python",
     note: "The Pythonic deep dive — data model, dunder methods, and idioms. Made my code measurably more Pythonic.",
     gradient: ["#2b5b84", "#3776ab"],
+    cover: "/covers/fluent-python.jpg",
     link: "https://www.goodreads.com/search?q=Fluent+Python+Luciano+Ramalho",
   },
   {
@@ -326,6 +329,7 @@ export const books: Book[] = [
     category: "Python",
     note: "Writing Python that resists bugs — typing, contracts, and defensive patterns for production codebases.",
     gradient: ["#4c1d95", "#7c3aed"],
+    cover: "/covers/robust-python.jpg",
     link: "https://www.goodreads.com/search?q=Robust+Python+Patrick+Viafore",
   },
   {
@@ -334,6 +338,7 @@ export const books: Book[] = [
     category: "APIs & Frameworks",
     note: "My DRF reference — serializers, viewsets, and REST design patterns straight from real project work.",
     gradient: ["#0c4a33", "#0f7a4d"],
+    cover: "/covers/django-for-apis.jpg",
     link: "https://www.goodreads.com/search?q=Django+for+APIs+William+Vincent",
   },
   {
@@ -342,6 +347,7 @@ export const books: Book[] = [
     category: "APIs & Frameworks",
     note: "Structuring FastAPI services at scale — modular design, async workflows, and deployment patterns.",
     gradient: ["#0d6e64", "#009688"],
+    cover: "/covers/building-python-microservices.jpg",
     link: "https://www.goodreads.com/search?q=Building+Python+Microservices+with+FastAPI+Tragura",
   },
   {
@@ -350,6 +356,7 @@ export const books: Book[] = [
     category: "Data Systems",
     note: "The data-systems bible — replication, partitioning, and consistency. The mental model behind my Kafka and Redis decisions.",
     gradient: ["#1e293b", "#475569"],
+    cover: "/covers/ddia.jpg",
     link: "https://www.goodreads.com/search?q=Designing+Data-Intensive+Applications+Kleppmann",
   },
   {
@@ -358,6 +365,7 @@ export const books: Book[] = [
     category: "Code Craft",
     note: "Names, functions, and boundaries — the craft standard I hold every module to.",
     gradient: ["#7c2d12", "#c2410c"],
+    cover: "/covers/clean-code.jpg",
     link: "https://www.goodreads.com/search?q=Clean+Code+Robert+Martin",
   },
   {
@@ -366,6 +374,7 @@ export const books: Book[] = [
     category: "Architecture",
     note: "The blue book — ubiquitous language and bounded contexts, how I think about modular monoliths.",
     gradient: ["#1e3a8a", "#2563eb"],
+    cover: "/covers/ddd.jpg",
     link: "https://www.goodreads.com/search?q=Domain-Driven+Design+Eric+Evans",
   },
   {
@@ -374,6 +383,7 @@ export const books: Book[] = [
     category: "Security",
     note: "Attacks and defenses end to end, from the request line to auth — how I approach hardening APIs.",
     gradient: ["#7f1d1d", "#dc2626"],
+    cover: "/covers/web-app-security.jpg",
     link: "https://www.goodreads.com/search?q=Web+Application+Security+Andrew+Hoffman",
   },
   {
@@ -382,6 +392,7 @@ export const books: Book[] = [
     category: "Protocols",
     note: "The HTTP/1.1 deep dive — methods, headers, connections, and caching, from first principles.",
     gradient: ["#92400e", "#d97706"],
+    cover: "/covers/http-definitive-guide.jpg",
     link: "https://www.goodreads.com/search?q=HTTP+The+Definitive+Guide+Gourley",
   },
   {
@@ -390,6 +401,7 @@ export const books: Book[] = [
     category: "Protocols",
     note: "Multiplexing, streams, and header compression — what actually changes at the protocol level.",
     gradient: ["#155e75", "#0891b2"],
+    cover: "/covers/learning-http2.jpg",
     link: "https://www.goodreads.com/search?q=Learning+HTTP/2+Ludin+Garza",
   },
   {
@@ -398,6 +410,7 @@ export const books: Book[] = [
     category: "Networking",
     note: "IP, subnetting, routing, and DNS — the layered model everything I deploy runs on.",
     gradient: ["#334155", "#64748b"],
+    cover: "/covers/networking-fundamentals.jpg",
     link: "https://www.goodreads.com/search?q=Networking+Fundamentals+Crystal+Panek",
   },
   {
@@ -406,6 +419,7 @@ export const books: Book[] = [
     category: "Infrastructure",
     note: "Practical recipes for load balancing, caching, and TLS — my production reverse-proxy companion.",
     gradient: ["#00532b", "#009639"],
+    cover: "/covers/nginx-cookbook.jpg",
     link: "https://www.goodreads.com/search?q=NGINX+Cookbook+Derek+DeJonghe",
   },
   {
@@ -414,6 +428,7 @@ export const books: Book[] = [
     category: "Infrastructure",
     note: "Configuration as code — provisioning and automating Linux servers the reproducible way.",
     gradient: ["#111827", "#374151"],
+    cover: "/covers/ansible-up-and-running.jpg",
     link: "https://www.goodreads.com/search?q=Ansible+Up+and+Running+Bas+Meijer",
   },
 ];
