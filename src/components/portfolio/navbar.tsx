@@ -48,18 +48,18 @@ export function Navbar() {
             {profile.name}
             <span className="hidden sm:inline text-navy-200/70 font-normal">
               {" "}
-              · engineer
+              · backend dev
             </span>
           </span>
         </a>
 
         {/* Desktop links */}
-        <ul className="hidden md:flex items-center gap-1">
+        <ul className="hidden md:flex items-center gap-0.5">
           {navLinks.map((link) => (
             <li key={link.href}>
               <a
                 href={link.href}
-                className="rounded-md px-3.5 py-2 text-sm text-navy-100/80 transition-colors hover:text-white hover:bg-white/10"
+                className="rounded-md px-2.5 py-2 text-sm text-navy-100/80 transition-colors hover:text-white hover:bg-white/10 lg:px-3.5"
               >
                 {link.label}
               </a>

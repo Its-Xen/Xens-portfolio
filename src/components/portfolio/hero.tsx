@@ -4,12 +4,11 @@ import { motion } from "framer-motion";
 import {
   ArrowDown,
   ArrowRight,
-  BookOpen,
+  Briefcase,
   FileDown,
   Github,
-  Linkedin,
+  Mail,
   MapPin,
-  Send,
   Zap,
 } from "lucide-react";
 import { heroStats, profile } from "@/lib/portfolio-data";
@@ -18,11 +17,16 @@ import { heroStats, profile } from "@/lib/portfolio-data";
 const codeLines: { text: string; cls: string }[][] = [
   [{ text: "from", cls: "text-fuchsia-400" }, { text: " fastapi ", cls: "text-sky-200" }, { text: "import", cls: "text-fuchsia-400" }, { text: " FastAPI", cls: "text-sky-200" }],
   [{ text: "", cls: "" }],
-  [{ text: "app", cls: "text-sky-200" }, { text: " = ", cls: "text-navy-200" }, { text: "FastAPI", cls: "text-yellow-300" }, { text: "(title=", cls: "text-navy-200" }, { text: "\"Arman's Portfolio API\"", cls: "text-emerald-300" }, { text: ")", cls: "text-navy-200" }],
+  [{ text: "app", cls: "text-sky-200" }, { text: " = ", cls: "text-navy-200" }, { text: "FastAPI", cls: "text-yellow-300" }, { text: "(title=", cls: "text-navy-200" }, { text: "\"Parsa Nazari — Backend\"", cls: "text-emerald-300" }, { text: ")", cls: "text-navy-200" }],
   [{ text: "", cls: "" }],
-  [{ text: "@app.get", cls: "text-cyan-300" }, { text: "(", cls: "text-navy-200" }, { text: "\"/projects\"", cls: "text-emerald-300" }, { text: ", ", cls: "text-navy-200" }, { text: "response_model", cls: "text-sky-200" }, { text: "=", cls: "text-navy-200" }, { text: "list", cls: "text-yellow-300" }, { text: "[", cls: "text-navy-200" }, { text: "Project", cls: "text-yellow-300" }, { text: "])", cls: "text-navy-200" }],
-  [{ text: "async def", cls: "text-fuchsia-400" }, { text: " list_projects", cls: "text-sky-200" }, { text: "(", cls: "text-navy-200" }, { text: "status", cls: "text-orange-300" }, { text: ": ", cls: "text-navy-200" }, { text: "str", cls: "text-yellow-300" }, { text: " | ", cls: "text-navy-200" }, { text: "None", cls: "text-yellow-300" }, { text: " = ", cls: "text-navy-200" }, { text: "None", cls: "text-yellow-300" }, { text: "):", cls: "text-navy-200" }],
-  [{ text: "    return", cls: "text-fuchsia-400" }, { text: " {", cls: "text-navy-200" }, { text: "\"count\"", cls: "text-emerald-300" }, { text: ": ", cls: "text-navy-200" }, { text: "25", cls: "text-orange-300" }, { text: ", ", cls: "text-navy-200" }, { text: "\"built_with\"", cls: "text-emerald-300" }, { text: ": ", cls: "text-navy-200" }, { text: "\"FastAPI\"", cls: "text-emerald-300" }, { text: "}", cls: "text-navy-200" }],
+  [{ text: "@app.get", cls: "text-cyan-300" }, { text: "(", cls: "text-navy-200" }, { text: "\"/profile\"", cls: "text-emerald-300" }, { text: ")", cls: "text-navy-200" }],
+  [{ text: "async def", cls: "text-fuchsia-400" }, { text: " profile", cls: "text-sky-200" }, { text: "() -> ", cls: "text-navy-200" }, { text: "dict", cls: "text-yellow-300" }, { text: ":", cls: "text-navy-200" }],
+  [{ text: "    return", cls: "text-fuchsia-400" }, { text: " {", cls: "text-navy-200" }],
+  [{ text: "        \"stack\"", cls: "text-emerald-300" }, { text: ": [", cls: "text-navy-200" }, { text: "\"Python\"", cls: "text-emerald-300" }, { text: ", ", cls: "text-navy-200" }, { text: "\"FastAPI\"", cls: "text-emerald-300" }, { text: ", ", cls: "text-navy-200" }, { text: "\"Django\"", cls: "text-emerald-300" }, { text: "],", cls: "text-navy-200" }],
+  [{ text: "        \"databases\"", cls: "text-emerald-300" }, { text: ": ", cls: "text-navy-200" }, { text: "\"PostgreSQL · Redis\"", cls: "text-emerald-300" }, { text: ",", cls: "text-navy-200" }],
+  [{ text: "        \"experience\"", cls: "text-emerald-300" }, { text: ": ", cls: "text-navy-200" }, { text: "\"4+ years\"", cls: "text-emerald-300" }, { text: ",", cls: "text-navy-200" }],
+  [{ text: "        \"status\"", cls: "text-emerald-300" }, { text: ": ", cls: "text-navy-200" }, { text: "\"open to opportunities\"", cls: "text-emerald-300" }, { text: ",", cls: "text-navy-200" }],
+  [{ text: "    }", cls: "text-navy-200" }],
 ];
 
 const fadeUp = {
@@ -120,11 +124,11 @@ export function Hero() {
                 Résumé
               </a>
               <a
-                href="#reading"
+                href="#experience"
                 className="inline-flex items-center gap-2 rounded-xl px-4 py-3.5 text-sm font-medium text-navy-200/70 transition-colors hover:text-white"
               >
-                <BookOpen className="size-4" aria-hidden="true" />
-                Reading list
+                <Briefcase className="size-4" aria-hidden="true" />
+                Experience
               </a>
             </motion.div>
 
@@ -140,8 +144,7 @@ export function Hero() {
               <div className="flex items-center gap-2">
                 {[
                   { icon: Github, href: profile.github, label: "GitHub profile" },
-                  { icon: Linkedin, href: profile.linkedin, label: "LinkedIn profile" },
-                  { icon: Send, href: profile.telegram, label: "Telegram" },
+                  { icon: Mail, href: `mailto:${profile.email}`, label: "Email" },
                 ].map(({ icon: Icon, href, label }) => (
                   <a
                     key={label}
@@ -172,7 +175,7 @@ export function Hero() {
                 <span className="size-3 rounded-full bg-amber-400/80" />
                 <span className="size-3 rounded-full bg-emerald-400/80" />
                 <span className="ml-3 font-mono text-xs text-navy-200/50">
-                  main.py — FastAPI
+                  main.py — FastAPI · async
                 </span>
               </div>
               <pre className="overflow-x-auto p-5 font-mono text-[13px] leading-7">
@@ -216,8 +219,8 @@ export function Hero() {
               transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
               className="absolute -bottom-6 -right-6 rounded-xl border border-brand-400/30 bg-navy-900/90 px-4 py-2.5 shadow-xl backdrop-blur"
             >
-              <p className="font-mono text-xs text-emerald-300">p95 · 38 ms</p>
-              <p className="text-[10px] text-navy-200/60">load-tested under RPS</p>
+              <p className="font-mono text-xs text-emerald-300">Docker · CI/CD</p>
+              <p className="text-[10px] text-navy-200/60">shipped with GitHub Actions</p>
             </motion.div>
           </motion.div>
         </div>

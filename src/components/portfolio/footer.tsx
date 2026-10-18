@@ -1,4 +1,4 @@
-import { ArrowUp, Github, Linkedin, Send } from "lucide-react";
+import { ArrowUp, Github, Mail } from "lucide-react";
 import { navLinks, profile } from "@/lib/portfolio-data";
 
 export function Footer() {
@@ -20,9 +20,9 @@ export function Footer() {
               {profile.name}
             </a>
             <p className="mt-4 text-sm leading-relaxed text-navy-200/60">
-              Software engineer building fast, reliable backend systems with
-              Python, FastAPI &amp; Django. Open to new opportunities and
-              interesting problems.
+              Backend developer with 4+ years of experience building scalable,
+              production-ready systems with Python — FastAPI, Django,
+              PostgreSQL, Redis &amp; Kafka. Open to new opportunities.
             </p>
           </div>
 
@@ -53,8 +53,7 @@ export function Footer() {
             <div className="mt-4 flex items-center gap-2.5">
               {[
                 { icon: Github, href: profile.github, label: "GitHub" },
-                { icon: Linkedin, href: profile.linkedin, label: "LinkedIn" },
-                { icon: Send, href: profile.telegram, label: "Telegram" },
+                { icon: Mail, href: `mailto:${profile.email}`, label: "Email" },
               ].map(({ icon: Icon, href, label }) => (
                 <a
                   key={label}
@@ -83,7 +82,7 @@ export function Footer() {
             © {year} {profile.name}. All rights reserved.
           </p>
           <p className="font-mono">
-            Designed & built with Next.js · powered by FastAPI-in-spirit
+            Designed &amp; built with Next.js · fully static · runs on Cloudflare Pages
           </p>
         </div>
       </div>

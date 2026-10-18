@@ -4,6 +4,7 @@ import {
   Database,
   FlaskConical,
   Layers,
+  Workflow,
   type LucideIcon,
 } from "lucide-react";
 import { techGroups } from "@/lib/portfolio-data";
@@ -16,21 +17,22 @@ const CATEGORY_ICONS: Record<string, LucideIcon> = {
   database: Database,
   container: Container,
   flask: FlaskConical,
+  workflow: Workflow,
 };
 
 export function Tools() {
   return (
     <section
       id="skills"
-      className="scroll-mt-16 bg-white py-20 md:py-28"
+      className="scroll-mt-16 bg-navy-50/50 py-20 md:py-28"
       aria-labelledby="skills-heading"
     >
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <SectionHeading
-          index="03"
+          index="04"
           eyebrow="Tools & Technologies"
           title="My engineering toolbox"
-          description="The stack I reach for daily to design, build, test, and operate backend systems — centered on the Python ecosystem with FastAPI and Django at the core."
+          description="The stack I reach for daily to design, build, test, and operate backend systems — centered on Python with FastAPI and Django at the core."
         />
 
         <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
@@ -87,23 +89,23 @@ export function Tools() {
                 <ul className="mt-5 space-y-3 text-sm leading-relaxed text-navy-100/80">
                   <li className="flex gap-2.5">
                     <span className="mt-1.5 size-1.5 shrink-0 rounded-full bg-brand-400" />
-                    Async-first architecture — every I/O boundary is
-                    non-blocking by default.
+                    Clean architecture by default — routing, business logic,
+                    data access, and schemas kept in separate layers.
                   </li>
                   <li className="flex gap-2.5">
                     <span className="mt-1.5 size-1.5 shrink-0 rounded-full bg-brand-400" />
-                    Type safety end-to-end: Pydantic contracts validated from
-                    request to response.
+                    Performance is a feature: PostgreSQL query plans examined,
+                    Redis caching where it actually pays off.
                   </li>
                   <li className="flex gap-2.5">
                     <span className="mt-1.5 size-1.5 shrink-0 rounded-full bg-brand-400" />
-                    Everything containerized, every deploy reproducible, every
-                    service observable.
+                    Everything containerized, every deploy automated with CI/CD,
+                    every service running on production Linux.
                   </li>
                 </ul>
               </div>
               <p className="mt-6 border-t border-white/10 pt-4 font-mono text-xs text-navy-200/60">
-                &gt; currently exploring: Rust (the next chapter) · async runtimes · event-driven systems
+                &gt; currently in production: FastAPI · Django · DRF · Redis · Kafka
               </p>
             </article>
           </Reveal>

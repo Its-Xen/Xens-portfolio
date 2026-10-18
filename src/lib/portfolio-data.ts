@@ -1,8 +1,8 @@
 /**
  * ─────────────────────────────────────────────────────────────
  *  PORTFOLIO DATA — SINGLE SOURCE OF TRUTH
- *  Stage 1: placeholder content for a FastAPI developer persona.
- *  Stage 2: swap every field below with the real résumé details.
+ *  Real résumé data for Parsa Nazari · Backend Developer.
+ *  Edit this one file to update anything shown on the site.
  * ─────────────────────────────────────────────────────────────
  */
 
@@ -27,164 +27,181 @@ export interface TechGroup {
   items: { name: string; monogram: string; color: string }[];
 }
 
-export interface Book {
-  title: string;
-  author: string;
-  takeaway: string;
-  link: string;
-  coverGradient: string; // tailwind gradient classes for the CSS book cover
-  accentText: string;
+export interface ExperienceItem {
+  company: string;
+  role: string;
+  period: string;
+  summary: string;
+  bullets: string[];
+  tech: string[];
 }
 
 export const profile = {
-  name: "Arman Rezaei",
-  firstName: "Arman",
-  role: "Software Engineer",
-  specialization: "Python · FastAPI · Django",
+  name: "Parsa Nazari",
+  firstName: "Parsa",
+  role: "Backend Developer",
+  specialization: "Python & FastAPI",
   tagline:
-    "I design and build fast, scalable backend systems with Python — production-grade APIs with FastAPI today, full-featured products with Django, and Rust on the roadmap. Clean architecture, type safety, and performance first.",
-  location: "Tehran, Iran · Open to Remote",
-  email: "arman.rezaei.dev@gmail.com",
-  github: "https://github.com/armanrezaei-dev",
-  linkedin: "https://www.linkedin.com/in/armanrezaei-dev",
-  telegram: "https://t.me/armanrezaei_dev",
-  resumeUrl: "#contact", // Stage 2: replace with a link to the real résumé PDF
-  availability: "Available for new opportunities",
+    "Backend developer with 4+ years of experience building scalable, production-ready web applications with Python — RESTful APIs, backend architecture, PostgreSQL, Redis, Kafka, Docker, CI/CD, and Linux infrastructure. Clean architecture and reliable production systems, first.",
+  location: "Iran · Open to Remote",
+  email: "callmexenix@gmail.com",
+  phone: "+98 911 579 8804",
+  phoneHref: "tel:+989115798804",
+  github: "https://github.com/Its-Xen",
+  githubHandle: "github.com/Its-Xen",
+  resumeUrl: "#contact", // replace with a link to the real résumé PDF when ready
+  availability: "Open to new opportunities",
+  /**
+   * Web3Forms access key — the only thing needed to make the contact form
+   * deliver email from this fully static site. Get a free key at
+   * https://web3forms.com (1 minute, no account needed) and paste it here.
+   * While empty, the form gracefully falls back to opening the visitor's
+   * email client with a pre-filled message.
+   */
+  web3formsKey: "",
   funFact:
-    "When I'm not shipping endpoints, I'm benchmarking them — or lost in a book about distributed systems.",
+    "Good backends are boring — predictable, observable, and fast. I build for boring.",
 };
 
 export const heroStats = [
-  { value: "4+", label: "Years of Experience" },
-  { value: "25+", label: "APIs Shipped to Production" },
-  { value: "120k+", label: "Daily Requests Served" },
-  { value: "99.9%", label: "Uptime Maintained" },
+  { value: "4+", label: "Years of Backend Experience" },
+  { value: "3", label: "Production Backend Roles" },
+  { value: "15+", label: "Technologies in Daily Stack" },
+  { value: "2", label: "Key Projects Designed & Built" },
 ];
 
 export const about = {
   paragraph1:
-    "I'm a software engineer with 4+ years of experience designing and shipping high-performance backend systems in Python. My journey started with a curiosity about how the web talks to itself — that curiosity grew into a career building the services that power products used by thousands of people every day.",
+    "I'm a backend developer with 4+ years of experience building scalable, production-ready web applications with Python. My work covers the full backend lifecycle: designing RESTful APIs and backend architecture, modeling and optimizing databases, wiring caching and messaging layers, and shipping everything through Docker, CI/CD pipelines, and Linux infrastructure.",
   paragraph2:
-    "I care deeply about the craft of backend engineering: APIs that are self-documenting, schemas that are type-safe from database to response, and infrastructure that scales without drama. I build async, high-throughput services with FastAPI and batteries-included products with Django — obsessing over latency budgets, clean architecture, and the kind of developer experience that makes teams faster. Next chapter: Rust.",
+    "I've built and maintained backend systems for high-traffic e-commerce and fintech products, worked on complex financial workflows, integrated third-party payment gateways, implemented authentication and asynchronous processing, and refactored legacy monoliths into modular, testable architectures. Day to day I work with FastAPI, Django, and Django REST Framework — always with a focus on clean architecture, high-performance APIs, and systems that stay reliable in production.",
   highlights: [
     {
-      title: "API Architecture",
+      title: "Backend Architecture",
       description:
-        "Designing versioned REST & WebSocket APIs with OpenAPI, Pydantic v2 contracts, and clean layered architecture.",
+        "Clean, modular design — routing, business logic, data access, and schemas kept separate so systems stay testable and easy to change.",
     },
     {
-      title: "Performance & Scale",
+      title: "Performance Under Load",
       description:
-        "Async-first Python, query optimization, caching strategies, and load-tested services that hold up under pressure.",
+        "PostgreSQL query optimization and Redis caching that keep APIs responsive on high-traffic, production e-commerce and fintech systems.",
     },
     {
-      title: "DevOps Mindset",
+      title: "Async & Event-Driven",
       description:
-        "Dockerized deployments, CI/CD pipelines, observability with structured logs and metrics — I ship it and I own it.",
+        "Kafka-based workflows, background processing, and distributed services for the work that shouldn't block the request path.",
     },
     {
-      title: "Continuous Learning",
+      title: "Ship to Production",
       description:
-        "Reading, experimenting, and contributing to open source — every project teaches the next one something new.",
+        "Docker, Nginx, Linux, and GitHub Actions CI/CD — I own services from commit to production deployment.",
     },
   ],
 };
 
+/** Chip list rendered under the About narrative — straight from the résumé. */
+export const coreStrengths = [
+  "Backend Architecture & System Design",
+  "REST API Development",
+  "FastAPI & Python",
+  "Database Design & Query Optimization",
+  "Performance Optimization",
+  "Clean & Maintainable Code",
+  "Redis & Kafka",
+  "Docker & CI/CD",
+  "Production Linux Infrastructure",
+  "Problem Solving & Debugging",
+  "International Team Communication",
+  "Self-Learning & Adaptability",
+];
+
+export const experience: ExperienceItem[] = [
+  {
+    company: "ROSHD Company",
+    role: "Backend Developer — International Projects",
+    period: "Aug 2025 — Jul 2026",
+    summary:
+      "Backend systems for international clients across high-traffic e-commerce and fintech projects.",
+    bullets: [
+      "Designed scalable RESTful APIs and backend architectures with Python for high-traffic e-commerce and fintech products.",
+      "Built complex financial workflows: multi-currency transaction processing, automated invoicing, and inventory management.",
+      "Refactored legacy monolithic modules into maintainable, testable, modular architectures.",
+      "Integrated third-party payment gateways and external financial services into backend systems.",
+      "Optimized PostgreSQL queries and implemented Redis caching to improve API performance under high traffic.",
+      "Designed asynchronous, event-driven workflows across distributed services; worked directly with international stakeholders.",
+      "Containerized services with Docker and managed CI/CD pipelines plus Linux production deployments.",
+    ],
+    tech: ["Python", "FastAPI", "PostgreSQL", "Redis", "Docker", "CI/CD", "Nginx"],
+  },
+  {
+    company: "Saha App",
+    role: "Backend Developer",
+    period: "May 2024 — Jun 2025",
+    summary:
+      "Designed and developed a custom ERP platform from scratch — finance, accounting, HR, and supply chain.",
+    bullets: [
+      "Designed and developed a custom ERP platform from scratch using Python, Django, and Django REST Framework.",
+      "Built RESTful APIs for finance, accounting, HR, and supply-chain workflows.",
+      "Developed invoice and cheque management systems with complex business logic, plus HR scheduling with conflict detection.",
+      "Shipped real-time communication features using Django Channels and Firebase push notifications.",
+      "Implemented Redis caching and Kafka-based event-driven workflows for asynchronous backend processing.",
+      "Implemented JWT authentication, automated deployments through GitHub Actions, and ran production on Linux + Nginx.",
+    ],
+    tech: ["Django", "DRF", "Django Channels", "Redis", "Kafka", "JWT", "Docker"],
+  },
+  {
+    company: "Moshaversara",
+    role: "Backend Developer",
+    period: "Jan 2024 — Apr 2024",
+    summary:
+      "Educational platform focused on curriculum management and college planning.",
+    bullets: [
+      "Developed backend features for an educational platform focused on curriculum management and college planning.",
+      "Designed and implemented RESTful API endpoints with PostgreSQL and JWT authentication.",
+      "Configured production infrastructure using Linux and Nginx, and extended existing backend functionality.",
+    ],
+    tech: ["Python", "REST APIs", "PostgreSQL", "JWT", "Linux", "Nginx"],
+  },
+];
+
 export const projects: Project[] = [
   {
-    id: "taskflow",
-    title: "TaskFlow API",
-    emoji: "🗂️",
-    tagline: "Collaborative task-management platform backend",
-    description:
-      "A production REST + WebSocket API for team task management: JWT auth with refresh rotation, role-based permissions, real-time notifications, and activity feeds. Fully dockerized with a 120-endpoint OpenAPI spec.",
-    status: "Completed",
-    tech: ["FastAPI", "PostgreSQL", "Redis", "Celery", "Docker", "pytest"],
-    highlights: [
-      "95% test coverage with async integration tests",
-      "p95 response time under 40 ms with Redis caching",
-      "Real-time updates via WebSockets for 500+ concurrent users",
-    ],
-    repoUrl: "https://github.com/armanrezaei-dev/taskflow-api",
-    liveUrl: "https://taskflow-demo.armanrezaei.dev",
-  },
-  {
-    id: "shopstream",
-    title: "Shopstream Commerce",
+    id: "ecommerce-api",
+    title: "FastAPI E-Commerce Platform",
     emoji: "🛒",
-    tagline: "Headless e-commerce backend engine",
+    tagline: "Production-oriented backend for an online clothing store",
     description:
-      "A headless commerce engine powering multiple storefronts from one API: product catalog with faceted search, inventory synchronization, Stripe payments with idempotent webhooks, and aggressive rate limiting on public endpoints.",
+      "A production-oriented e-commerce backend built with FastAPI: modular endpoints for authentication, users, products, categories, addresses, cart, and orders — with business logic isolated in a service layer and the whole app designed for containerized deployment.",
     status: "Completed",
-    tech: ["Django", "DRF", "PostgreSQL", "Stripe", "Nginx", "AWS"],
-    highlights: [
-      "Idempotent payment webhooks — zero double charges in production",
-      "Catalog search under 80 ms on 50k+ products",
-      "Multi-tenant-ready data model with row-level isolation",
+    tech: [
+      "FastAPI",
+      "PostgreSQL",
+      "SQLAlchemy",
+      "Pydantic",
+      "JWT",
+      "Redis",
+      "Docker",
     ],
-    repoUrl: "https://github.com/armanrezaei-dev/shopstream",
+    highlights: [
+      "Modular endpoints across 7+ domains: auth, users, products, categories, addresses, cart, orders",
+      "PostgreSQL models via SQLAlchemy with Pydantic request/response validation",
+      "Product search & filtering, pagination, and full shopping-cart + order-management workflows",
+      "JWT authentication and containerized deployment with Docker",
+    ],
   },
   {
-    id: "chatstack",
-    title: "Realtime Chat Service",
-    emoji: "💬",
-    tagline: "Horizontal-scaling WebSocket chat platform",
+    id: "study-social-hub",
+    title: "Study Social Hub",
+    emoji: "📚",
+    tagline: "Collaborative study rooms with gamified progress tracking",
     description:
-      "A WebSocket-first chat service with presence tracking, typing indicators, delivery receipts, and paginated history. Multiple app instances stay in sync through Redis pub/sub — stateless servers, sticky-session-free scaling.",
-    status: "Completed",
-    tech: ["FastAPI", "WebSockets", "Redis", "PostgreSQL", "Docker Compose"],
-    highlights: [
-      "Scaled horizontally across 6 instances with zero config drift",
-      "Sub-100 ms message fan-out across regions",
-      "Graceful reconnection with offline message replay",
-    ],
-    repoUrl: "https://github.com/armanrezaei-dev/chatstack",
-  },
-  {
-    id: "mlserve",
-    title: "MLserve Platform",
-    emoji: "🧠",
-    tagline: "Self-service model-serving infrastructure",
-    description:
-      "A platform for serving ML models as versioned async APIs: upload a model artifact, get a scalable inference endpoint with request batching, Prometheus metrics, and A/B traffic splitting. Currently building the model registry UI.",
+      "Backend architecture for a collaborative study platform: shared study rooms, timers, progress tracking, streaks, and leaderboards. Note-management and AI-powered summary/quiz workflows are planned as modular services so the system can scale feature by feature.",
     status: "In Progress",
-    tech: ["FastAPI", "ONNX Runtime", "Redis", "Prometheus", "Kubernetes"],
+    tech: ["FastAPI", "PostgreSQL", "Redis", "Docker"],
     highlights: [
-      "Dynamic request batching cut GPU cost per inference by 35%",
-      "Canary deployments with weighted traffic routing",
-      "Automatic scale-to-zero for idle model endpoints",
-    ],
-    repoUrl: "https://github.com/armanrezaei-dev/mlserve",
-  },
-  {
-    id: "pykit",
-    title: "PyKit CLI",
-    emoji: "🧰",
-    tagline: "Open-source scaffolding toolkit for FastAPI teams",
-    description:
-      "A CLI that scaffolds production-ready FastAPI projects in seconds: layered architecture templates, pre-configured Docker Compose, linting presets, auth boilerplate, and CI workflows. Designed for teams that keep rebuilding the same skeleton.",
-    status: "In Progress",
-    tech: ["Python", "Typer", "Rich", "Cookiecutter", "GitHub Actions"],
-    highlights: [
-      "830+ downloads in the first month on PyPI",
-      "Interactive project wizard with sensible defaults",
-      "Pluggable template system for team conventions",
-    ],
-    repoUrl: "https://github.com/armanrezaei-dev/pykit",
-  },
-  {
-    id: "meshqueue",
-    title: "MeshQueue",
-    emoji: "🕸️",
-    tagline: "Distributed task queue — designed, not yet built",
-    description:
-      "A design-stage concept for a lightweight distributed task queue: priority scheduling, dead-letter queues with replay, and exactly-once semantics on top of RabbitMQ. The RFC and architecture drawings are done — code comes after MLserve ships.",
-    status: "Concept",
-    tech: ["RabbitMQ", "Python", "Redis", "Protobuf", "System Design"],
-    highlights: [
-      "Architecture RFC with failure-mode analysis complete",
-      "Benchmark plan targeting 10k tasks/sec on commodity hardware",
-      "Exploring WAL-based persistence vs. broker-native durability",
+      "Collaborative study rooms with timers and shared progress tracking",
+      "Streaks and leaderboards to keep learners engaged",
+      "Note-management and AI-powered summary/quiz workflows planned as modular services",
     ],
   },
 ];
@@ -195,21 +212,21 @@ export const techGroups: TechGroup[] = [
     icon: "code",
     items: [
       { name: "Python", monogram: "Py", color: "#3776ab" },
-      { name: "TypeScript", monogram: "Ts", color: "#3178c6" },
       { name: "SQL", monogram: "Sq", color: "#e38c00" },
-      { name: "Bash", monogram: "Sh", color: "#4eaa25" },
     ],
   },
   {
-    category: "Frameworks & Libraries",
+    category: "Backend & APIs",
     icon: "layers",
     items: [
       { name: "FastAPI", monogram: "Fa", color: "#009688" },
       { name: "Django", monogram: "Dj", color: "#092e20" },
-      { name: "Pydantic v2", monogram: "Pd", color: "#e92063" },
+      { name: "Django REST Framework", monogram: "Dr", color: "#a30000" },
+      { name: "Django Channels", monogram: "Ch", color: "#0c7c59" },
+      { name: "Pydantic", monogram: "Pd", color: "#e92063" },
       { name: "SQLAlchemy", monogram: "Sa", color: "#d71f00" },
-      { name: "Celery", monogram: "Ce", color: "#37814a" },
-      { name: "Typer", monogram: "Ty", color: "#0891b2" },
+      { name: "JWT Authentication", monogram: "Jw", color: "#000000" },
+      { name: "OpenAPI", monogram: "Oa", color: "#6ba539" },
     ],
   },
   {
@@ -217,96 +234,69 @@ export const techGroups: TechGroup[] = [
     icon: "database",
     items: [
       { name: "PostgreSQL", monogram: "Pg", color: "#336791" },
+      { name: "MySQL", monogram: "My", color: "#00758f" },
       { name: "Redis", monogram: "Re", color: "#dc382d" },
-      { name: "SQLite", monogram: "Lt", color: "#0f80cc" },
-      { name: "MongoDB", monogram: "Mo", color: "#47a248" },
     ],
   },
   {
-    category: "DevOps & Infrastructure",
+    category: "Messaging & Architecture",
+    icon: "workflow",
+    items: [
+      { name: "Kafka", monogram: "Kf", color: "#231f20" },
+      { name: "Event-Driven Architecture", monogram: "Ev", color: "#7c3aed" },
+      { name: "Clean Architecture", monogram: "Cl", color: "#0e7490" },
+      { name: "Microservices", monogram: "Mi", color: "#4f46e5" },
+      { name: "System Design", monogram: "Sd", color: "#b45309" },
+    ],
+  },
+  {
+    category: "Infrastructure & DevOps",
     icon: "container",
     items: [
       { name: "Docker", monogram: "Dk", color: "#2496ed" },
-      { name: "Kubernetes", monogram: "K8", color: "#326ce5" },
       { name: "Nginx", monogram: "Nx", color: "#009639" },
+      { name: "Linux", monogram: "Li", color: "#fcc624" },
+      { name: "Git", monogram: "Gt", color: "#f05032" },
       { name: "GitHub Actions", monogram: "Gh", color: "#181717" },
-      { name: "AWS", monogram: "Aw", color: "#ff9900" },
+      { name: "CI/CD", monogram: "Ci", color: "#059669" },
     ],
   },
   {
-    category: "Testing & Workflow",
+    category: "Other",
     icon: "flask",
     items: [
-      { name: "pytest", monogram: "Pt", color: "#0a9edc" },
-      { name: "Postman", monogram: "Pm", color: "#ff6c37" },
-      { name: "Git", monogram: "Gt", color: "#f05032" },
-      { name: "Linux", monogram: "Li", color: "#fcc624" },
-      { name: "OpenAPI", monogram: "Oa", color: "#6ba539" },
+      { name: "Selenium", monogram: "Se", color: "#43b02a" },
+      { name: "Beautiful Soup", monogram: "Bs", color: "#3b82f6" },
     ],
   },
 ];
 
-export const books: Book[] = [
-  {
-    title: "Designing Data-Intensive Applications",
-    author: "Martin Kleppmann",
-    takeaway:
-      "Reliability, scalability, and maintainability aren't accidents — they're engineering choices you design for on purpose.",
-    link: "https://www.goodreads.com/search?q=Designing+Data-Intensive+Applications",
-    coverGradient: "from-amber-500 via-orange-600 to-rose-700",
-    accentText: "text-amber-100",
-  },
-  {
-    title: "Architecture Patterns with Python",
-    author: "Harry Percival & Bob Gregory",
-    takeaway:
-      "Ports, adapters, and event-driven boundaries keep business logic pure — even in a framework-heavy world like FastAPI.",
-    link: "https://www.cosmicpython.com/book/preface.html",
-    coverGradient: "from-cyan-600 via-sky-700 to-indigo-900",
-    accentText: "text-cyan-100",
-  },
-  {
-    title: "Fluent Python",
-    author: "Luciano Ramalho",
-    takeaway:
-      "Python rewards those who learn its idioms — async generators, descriptors, and dunder protocols are superpowers, not trivia.",
-    link: "https://www.goodreads.com/search?q=Fluent+Python",
-    coverGradient: "from-yellow-500 via-amber-600 to-orange-700",
-    accentText: "text-yellow-100",
-  },
-  {
-    title: "The Pragmatic Programmer",
-    author: "Andrew Hunt & David Thomas",
-    takeaway:
-      "DRY, orthogonality, and tracer bullets — timeless practices that make codebases kind to the humans who maintain them.",
-    link: "https://pragprog.com/titles/tpp20/the-pragmatic-programmer-20th-anniversary-edition/",
-    coverGradient: "from-slate-700 via-slate-800 to-navy-950",
-    accentText: "text-slate-200",
-  },
-  {
-    title: "Clean Architecture",
-    author: "Robert C. Martin",
-    takeaway:
-      "The dependency rule is the whole game: dependencies point inward, frameworks are plugins, and details can wait.",
-    link: "https://www.goodreads.com/search?q=Clean+Architecture+Robert+Martin",
-    coverGradient: "from-stone-600 via-stone-700 to-stone-900",
-    accentText: "text-stone-200",
-  },
-  {
-    title: "High Performance Python",
-    author: "Micha Gorelick & Ian Ozsvald",
-    takeaway:
-      "Measure before you optimize — profilers, async I/O, and the right data structure beat premature cleverness every time.",
-    link: "https://www.oreilly.com/library/view/high-performance-python/9781492055013/",
-    coverGradient: "from-emerald-600 via-teal-700 to-cyan-900",
-    accentText: "text-emerald-100",
-  },
-];
+export const education = {
+  degree: "Bachelor's Degree in Computer Engineering",
+  school: "University of Shomal",
+  period: "2021 — 2026",
+  note: "Studying computer engineering while working as a professional backend developer — theory in the morning, production systems in the afternoon.",
+  languages: [
+    {
+      name: "Persian",
+      level: "Native",
+      note: "Mother tongue",
+      proficiency: 100,
+    },
+    {
+      name: "English",
+      level: "B2–C1",
+      note: "Technical communication, meetings, and documentation",
+      proficiency: 80,
+    },
+  ],
+};
 
 export const navLinks = [
   { label: "About", href: "#about" },
+  { label: "Experience", href: "#experience" },
   { label: "Projects", href: "#projects" },
   { label: "Skills", href: "#skills" },
-  { label: "Reading", href: "#reading" },
+  { label: "Education", href: "#education" },
   { label: "Contact", href: "#contact" },
 ];

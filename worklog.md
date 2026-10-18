@@ -21,3 +21,23 @@ Stage Summary:
 - All fake data centralized in src/lib/portfolio-data.ts for quick résumé swap (Stage 2)
 - Contact messages persist to SQLite (db/custom.db) via /api/contact
 - Placeholders awaiting Stage 2: name/socials/email, résumé PDF link, real project URLs, real book summary links
+
+---
+Task ID: 2
+Agent: Main agent (Z.ai)
+Task: Stage 1.5 + Stage 2 — Reposition as Software Engineer, add Cloudflare-readiness, then (final user decision) convert to FULL STATIC site and fill in real résumé data for Parsa Nazari
+
+Work Log:
+- Stage 1.5 (superseded): built Workers+D1 path (wrangler.jsonc, contact-store.ts, notify.ts, OpenNext adapter) and repositioned persona; then user chose "full static" — reverted all server-side pieces
+- Rewrote src/lib/portfolio-data.ts with real résumé data: profile (Parsa Nazari, Backend Developer, Python & FastAPI, callmexenix@gmail.com, +98 911 579 8804, github.com/Its-Xen), honest hero stats (4+ yrs, 3 roles, 15+ techs, 2 projects), about + coreStrengths chips, experience timeline (ROSHD Aug 2025–Jul 2026, Saha App May 2024–Jun 2025, Moshaversara Jan–Apr 2024), 2 real key projects (FastAPI E-Commerce Platform = Completed; Study Social Hub = In Progress), 6 tech groups from résumé skills, education (University of Shomal 2021–2026) + languages (Persian native, English B2–C1)
+- Static export: next.config.ts → output: "export" + images.unoptimized; removed src/app/api/, src/lib/{db,contact-store,notify}.ts, prisma/, migrations/, wrangler.jsonc, open-next.config.ts, reading-list.tsx; package.json: removed prisma/@prisma/client/@opennextjs/cloudflare/wrangler, scripts → dev/build/start/lint + no-op db:push (keeps platform bootstrap happy); bun install synced lockfile
+- Contact form → fully static: Web3Forms client-side POST when web3formsKey set (empty placeholder in data file), graceful mailto: fallback with pre-filled message + toast otherwise
+- New components: experience.tsx (vertical timeline, spine, tech chips), education.tsx (dark section, degree card + language proficiency bars); page.tsx order: Hero → About → Experience → Projects → Tools → Education → Contact; alternating white/navy-50/dark rhythm; section indices 01–06
+- Updated hero (new Parsa code snippet, GitHub+Mail socials, Experience CTA, Docker·CI/CD chip), navbar (· backend dev suffix, 6 links, tighter padding), footer (backend tagline, GitHub+Mail), about (core strengths chips, new icons), tools (workflow icon, résumé-accurate "how I work", production line), projects (filters derived from data — empty statuses hidden, 2-col grid, Its-Xen links), layout.tsx metadata (title/description/keywords/OG)
+- README.md rewritten: static workflow, Web3Forms setup, GitHub push commands, Cloudflare Pages deploy (Option A git-integration w/ NODE_VERSION=22, Option B wrangler pages deploy), custom domain note
+- Verification: bun run build succeeded (out/ 1.8MB static export); served out/ and browser-verified hero/about/experience/projects/education/contact screenshots — all correct; filter tab click test passed (aria-selected toggles, list updates); zero console errors; no stale Arman/fake references in source or build
+
+Stage Summary:
+- Deliverable: fully static portfolio (out/) with 100% real résumé data, zero backend, zero cost
+- Dev server note: processes spawned in agent sessions get reaped; platform start.sh self-heals on reboot (no-op db:push added for compatibility). Run `bun run dev` or serve out/ manually as needed
+- User next steps: push to GitHub (commands in README), deploy via Cloudflare Pages git-integration → *.pages.dev; optionally paste Web3Forms key into portfolio-data.ts to enable email delivery

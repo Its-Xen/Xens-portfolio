@@ -1,9 +1,9 @@
-import { Code2, Gauge, BookOpenCheck, Rocket } from "lucide-react";
-import { about, profile } from "@/lib/portfolio-data";
+import { Gauge, Layers, Rocket, Workflow } from "lucide-react";
+import { about, coreStrengths, profile } from "@/lib/portfolio-data";
 import { SectionHeading } from "./section-heading";
 import { Reveal } from "./reveal";
 
-const highlightIcons = [Code2, Gauge, Rocket, BookOpenCheck];
+const highlightIcons = [Layers, Gauge, Workflow, Rocket];
 
 export function About() {
   return (
@@ -27,12 +27,29 @@ export function About() {
               <p>{about.paragraph2}</p>
             </div>
 
+            {/* Core strengths chips */}
+            <div className="mt-8">
+              <p className="font-mono text-xs uppercase tracking-widest text-brand-600">
+                Core strengths
+              </p>
+              <ul className="mt-3 flex flex-wrap gap-2" aria-label="Core strengths">
+                {coreStrengths.map((strength) => (
+                  <li
+                    key={strength}
+                    className="rounded-full border border-navy-200 bg-navy-50/80 px-3.5 py-1.5 text-[13px] font-medium text-navy-700 transition-colors hover:border-brand-300 hover:bg-brand-50 hover:text-brand-700"
+                  >
+                    {strength}
+                  </li>
+                ))}
+              </ul>
+            </div>
+
             <figure className="mt-8 rounded-2xl border border-navy-100 bg-navy-50/60 p-6">
               <blockquote className="border-l-4 border-brand-500 pl-4 text-base italic leading-relaxed text-navy-800 md:text-lg">
                 {profile.funFact}
               </blockquote>
               <figcaption className="mt-3 pl-5 font-mono text-xs text-muted-foreground">
-                — {profile.name}, probably optimizing an N+1 query
+                — {profile.name}, probably refactoring a legacy module
               </figcaption>
             </figure>
           </Reveal>

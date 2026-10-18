@@ -16,7 +16,11 @@ import { SectionHeading } from "./section-heading";
 
 type Filter = "All" | ProjectStatus;
 
-const FILTERS: Filter[] = ["All", "Completed", "In Progress", "Concept"];
+/** Derive filter tabs from the data itself — only statuses that exist get a tab. */
+const FILTERS: Filter[] = [
+  "All",
+  ...Array.from(new Set(projects.map((p) => p.status))),
+];
 
 const STATUS_META: Record<
   ProjectStatus,
@@ -51,28 +55,23 @@ export function Projects() {
   );
 
   const counts = useMemo(() => {
-    const map: Record<Filter, number> = {
-      All: projects.length,
-      Completed: 0,
-      "In Progress": 0,
-      Concept: 0,
-    };
-    for (const p of projects) map[p.status] += 1;
+    const map: Record<string, number> = { All: projects.length };
+    for (const p of projects) map[p.status] = (map[p.status] ?? 0) + 1;
     return map;
   }, []);
 
   return (
     <section
       id="projects"
-      className="scroll-mt-16 bg-navy-50/50 py-20 md:py-28"
+      className="scroll-mt-16 bg-white py-20 md:py-28"
       aria-labelledby="projects-heading"
     >
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <SectionHeading
-          index="02"
-          eyebrow="Projects"
+          index="03"
+          eyebrow="Key Projects"
           title="Things I've built — and things I'm building"
-          description="From shipped production systems to early-stage concepts. Filter by status to see where each project stands right now."
+          description="From shipped production systems to work in progress. Filter by status to see where each project stands right now."
         />
 
         {/* ── Filter bar ── */}
@@ -240,16 +239,16 @@ export function Projects() {
 
         {/* More-work note */}
         <p className="mt-10 text-center text-sm text-muted-foreground">
-          More experiments live on{" "}
+          More backend experiments and utilities live on{" "}
           <a
-            href="https://github.com/armanrezaei-dev"
+            href="https://github.com/Its-Xen"
             target="_blank"
             rel="noopener noreferrer"
             className="font-medium text-brand-600 underline decoration-brand-300 underline-offset-4 hover:text-brand-700"
           >
             my GitHub
-          </a>{" "}
-          — from benchmark scripts to tiny async utilities.
+          </a>
+          .
         </p>
       </div>
     </section>

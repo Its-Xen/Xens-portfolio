@@ -21,28 +21,31 @@ const spaceGrotesk = Space_Grotesk({
 });
 
 export const metadata: Metadata = {
-  title: "Arman Rezaei — Software Engineer · Python · FastAPI · Django",
+  title: "Parsa Nazari — Backend Developer | Python & FastAPI",
   description:
-    "Portfolio of Arman Rezaei, a software engineer building fast, scalable backend systems with Python, FastAPI and Django. Explore projects, skills, and reading list.",
+    "Portfolio of Parsa Nazari, a backend developer with 4+ years of experience building scalable, production-ready systems with Python, FastAPI, and Django. RESTful APIs, PostgreSQL, Redis, Kafka, Docker, CI/CD.",
   keywords: [
-    "Software Engineer",
+    "Backend Developer",
+    "Python",
     "FastAPI",
     "Django",
-    "Python",
-    "Backend",
-    "API Development",
+    "Django REST Framework",
+    "REST API",
     "PostgreSQL",
+    "Redis",
+    "Kafka",
     "Docker",
+    "CI/CD",
     "Portfolio",
   ],
-  authors: [{ name: "Arman Rezaei" }],
+  authors: [{ name: "Parsa Nazari" }],
   icons: {
     icon: "/favicon.svg",
   },
   openGraph: {
-    title: "Arman Rezaei — Software Engineer",
+    title: "Parsa Nazari — Backend Developer",
     description:
-      "I build fast, scalable backend systems with Python — FastAPI and Django today, Rust on the roadmap.",
+      "Backend developer with 4+ years of experience building scalable, production-ready systems with Python — FastAPI, Django, PostgreSQL, Redis, Kafka.",
     type: "website",
   },
 };

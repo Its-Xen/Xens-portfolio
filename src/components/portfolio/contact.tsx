@@ -3,10 +3,10 @@
 import { useState, type FormEvent } from "react";
 import {
   Github,
-  Linkedin,
   Loader2,
   Mail,
   MapPin,
+  Phone,
   Send,
   Sparkles,
 } from "lucide-react";
@@ -41,28 +41,54 @@ export function Contact() {
     setSending(true);
 
     try {
-      const res = await fetch("/api/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(form),
-      });
-      const data = (await res.json()) as {
-        ok: boolean;
-        message?: string;
-        error?: string;
-      };
+      const accessKey = profile.web3formsKey;
 
-      if (res.ok && data.ok) {
-        toast({
-          title: "Message sent ✓",
-          description: data.message ?? "I'll get back to you soon.",
+      if (accessKey) {
+        // ── Static-friendly delivery via Web3Forms (free, no backend) ──
+        const res = await fetch("https://api.web3forms.com/submit", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+          },
+          body: JSON.stringify({
+            access_key: accessKey,
+            name: form.name,
+            email: form.email,
+            message: form.message,
+            subject: `Portfolio message from ${form.name}`,
+            from_name: "Portfolio Contact Form",
+          }),
         });
-        setForm(initialForm);
+        const data = (await res.json()) as { success: boolean; message?: string };
+
+        if (res.ok && data.success) {
+          toast({
+            title: "Message sent ✓",
+            description: "Thanks for reaching out — I'll get back to you soon.",
+          });
+          setForm(initialForm);
+        } else {
+          toast({
+            title: "Couldn't send message",
+            description:
+              data.message ?? "Please try again, or email me directly.",
+            variant: "destructive",
+          });
+        }
       } else {
+        // ── Graceful fallback: open the visitor's email client pre-filled ──
+        const subject = encodeURIComponent(
+          `Portfolio message from ${form.name}`
+        );
+        const body = encodeURIComponent(
+          `${form.message}\n\n— ${form.name} (${form.email})`
+        );
+        window.location.href = `mailto:${profile.email}?subject=${subject}&body=${body}`;
         toast({
-          title: "Couldn't send message",
-          description: data.error ?? "Please check the fields and try again.",
-          variant: "destructive",
+          title: "Opening your email app…",
+          description:
+            "Your message is pre-filled there — just hit send to deliver it.",
         });
       }
     } catch {
@@ -79,15 +105,15 @@ export function Contact() {
   return (
     <section
       id="contact"
-      className="scroll-mt-16 bg-navy-50/50 py-20 md:py-28"
+      className="scroll-mt-16 bg-white py-20 md:py-28"
       aria-labelledby="contact-heading"
     >
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <SectionHeading
-          index="05"
+          index="06"
           eyebrow="Contact"
-          title="Let's build something fast"
-          description="Recruiting for a backend role? Need an API designed and shipped? Or just want to trade notes on FastAPI and distributed systems — my inbox is open."
+          title="Let's build something reliable"
+          description="Recruiting for a backend role? Need an API designed, optimized, or refactored? My inbox is open — I read every message myself."
         />
 
         <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr]">
@@ -104,8 +130,8 @@ export function Contact() {
               </h3>
               <p className="mt-3 text-sm leading-relaxed text-navy-100/75">
                 Whether it&apos;s a full-time opportunity, a freelance project,
-                or an open-source collaboration — I read every message myself
-                and I&apos;m happy to talk shop or scope.
+                or an open-source collaboration — I&apos;m happy to talk shop
+                or scope.
               </p>
 
               <ul className="mt-8 space-y-4">
@@ -127,31 +153,44 @@ export function Contact() {
                     </span>
                   </a>
                 </li>
-                {[
-                  { icon: Github, label: "GitHub", href: profile.github, handle: "github.com/armanrezaei-dev" },
-                  { icon: Linkedin, label: "LinkedIn", href: profile.linkedin, handle: "in/armanrezaei-dev" },
-                ].map(({ icon: Icon, label, href, handle }) => (
-                  <li key={label}>
-                    <a
-                      href={href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="group flex items-center gap-3.5 rounded-xl border border-white/10 bg-white/5 p-4 transition-all hover:border-brand-400/40 hover:bg-white/10"
-                    >
-                      <span className="grid size-10 shrink-0 place-items-center rounded-lg bg-brand-500/15 text-brand-400">
-                        <Icon className="size-4.5" aria-hidden="true" />
+                <li>
+                  <a
+                    href={profile.phoneHref}
+                    className="group flex items-center gap-3.5 rounded-xl border border-white/10 bg-white/5 p-4 transition-all hover:border-brand-400/40 hover:bg-white/10"
+                  >
+                    <span className="grid size-10 shrink-0 place-items-center rounded-lg bg-brand-500/15 text-brand-400">
+                      <Phone className="size-4.5" aria-hidden="true" />
+                    </span>
+                    <span className="min-w-0">
+                      <span className="block text-xs text-navy-200/60">
+                        Phone
                       </span>
-                      <span className="min-w-0">
-                        <span className="block text-xs text-navy-200/60">
-                          {label}
-                        </span>
-                        <span className="block truncate text-sm font-medium text-white group-hover:text-brand-300">
-                          {handle}
-                        </span>
+                      <span className="block truncate text-sm font-medium text-white group-hover:text-brand-300">
+                        {profile.phone}
                       </span>
-                    </a>
-                  </li>
-                ))}
+                    </span>
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href={profile.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group flex items-center gap-3.5 rounded-xl border border-white/10 bg-white/5 p-4 transition-all hover:border-brand-400/40 hover:bg-white/10"
+                  >
+                    <span className="grid size-10 shrink-0 place-items-center rounded-lg bg-brand-500/15 text-brand-400">
+                      <Github className="size-4.5" aria-hidden="true" />
+                    </span>
+                    <span className="min-w-0">
+                      <span className="block text-xs text-navy-200/60">
+                        GitHub
+                      </span>
+                      <span className="block truncate text-sm font-medium text-white group-hover:text-brand-300">
+                        {profile.githubHandle}
+                      </span>
+                    </span>
+                  </a>
+                </li>
                 <li className="flex items-center gap-3.5 px-4 py-1 text-sm text-navy-200/60">
                   <MapPin className="size-4 shrink-0" aria-hidden="true" />
                   {profile.location}
@@ -159,7 +198,7 @@ export function Contact() {
               </ul>
 
               <p className="mt-auto pt-8 font-mono text-xs text-navy-200/40">
-                $ curl -X POST /api/contact — status: 200 OK
+                $ curl parsa.dev → 200 OK · static &amp; fast
               </p>
             </div>
           </Reveal>
@@ -225,7 +264,7 @@ export function Contact() {
                   rows={7}
                   value={form.message}
                   onChange={update("message")}
-                  placeholder="Hi Arman — we're hiring a backend engineer and your FastAPI work caught my eye..."
+                  placeholder="Hi Parsa — we're hiring a backend engineer and your FastAPI work caught my eye..."
                   className="w-full flex-1 resize-y rounded-xl border border-navy-200 bg-white px-4 py-3 text-sm leading-relaxed text-navy-900 outline-none transition-all placeholder:text-navy-300/70 focus:border-brand-500 focus:ring-2 focus:ring-brand-500/20"
                 />
               </div>
