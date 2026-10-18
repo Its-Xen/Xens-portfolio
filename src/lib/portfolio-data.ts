@@ -59,7 +59,7 @@ export const profile = {
   role: "Backend Developer",
   specialization: "Python & FastAPI",
   tagline:
-    "Backend developer with 4+ years of experience building scalable, production-ready web applications with Python — RESTful APIs, backend architecture, PostgreSQL, Redis, Kafka, Docker, CI/CD, and Linux infrastructure. Clean architecture and reliable production systems, first.",
+    "I design and ship scalable, production-ready backend systems with Python — clean architecture, fast APIs, reliable infrastructure.",
   location: "Iran · Open to Remote",
   email: "callmexenix@gmail.com",
   phone: "+98 911 579 8804",

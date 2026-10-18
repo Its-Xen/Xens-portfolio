@@ -8,6 +8,15 @@ GitHub Pages, Netlify, Nginx…).
 > ⚠️ **Private by design:** all personal data lives in one file —
 > `src/lib/portfolio-data.ts`. Edit that file to change anything on the site.
 
+## Theme — "Deep Space Mission Control"
+
+- **Dark mode is the default**: deep-space background, canvas starfield with twinkling
+  stars + occasional shooting stars, nebula haze, orbit rings around the code window.
+- **Light mode** ("stratosphere by day") available via the sun/moon toggle in the navbar;
+  choice persists in `localStorage`, no flash on reload (init script runs before paint).
+- All colors are CSS tokens in `src/app/globals.css` (`--glow`, `--nebula`, `--panel`, …)
+  that flip with the `.dark` class on `<html>` — retune the palette in one place.
+
 ## Sections
 
 | # | Section | Content |
@@ -18,7 +27,7 @@ GitHub Pages, Netlify, Nginx…).
 | 3 | Key Projects | E-commerce platform + Study Social Hub, with **status filters** (Completed / In Progress) |
 | 4 | Tools & Technologies | Grouped skill grid from the résumé |
 | 5 | Education & Languages | B.Sc. Computer Engineering + language proficiency |
-| 6 | Reading List | 13 books read & owned — CSS covers, shelf notes, Goodreads links |
+| 6 | Reading List | 13 books read & owned — real cover photos, shelf notes, Goodreads links |
 | 7 | Contact | Static contact form (Web3Forms) + email / phone / GitHub |
 
 ## Tech Stack
@@ -99,17 +108,20 @@ Cloudflare also sells `.dev` domains at cost). SSL is automatic.
 ```
 src/
 ├── app/
-│   ├── layout.tsx          # metadata, fonts, global styles
-│   ├── page.tsx            # section order lives here
-│   └── globals.css
+│   ├── layout.tsx          # metadata, fonts, theme init script
+│   ├── page.tsx            # section order lives here (+ starfield)
+│   └── globals.css         # ⭐ space theme tokens (light + dark)
 ├── components/portfolio/
-│   ├── navbar.tsx          # sticky nav + mobile sheet menu
-│   ├── hero.tsx            # intro + FastAPI code window + stats
+│   ├── navbar.tsx          # sticky nav + theme toggle + mobile sheet
+│   ├── starfield.tsx       # canvas: twinkling stars + shooting stars
+│   ├── theme-toggle.tsx    # dark/light switch (localStorage)
+│   ├── hero.tsx            # intro + FastAPI code window in orbit rings
 │   ├── about.tsx           # narrative + strengths + highlight cards
 │   ├── experience.tsx      # career timeline
 │   ├── projects.tsx        # filterable project cards
 │   ├── tools.tsx           # tech stack grid
 │   ├── education.tsx       # degree + languages
+│   ├── reading-list.tsx    # book shelf (covers + notes)
 │   ├── contact.tsx         # static form (Web3Forms / mailto)
 │   └── footer.tsx
 └── lib/

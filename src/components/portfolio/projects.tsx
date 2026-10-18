@@ -28,18 +28,21 @@ const STATUS_META: Record<
 > = {
   Completed: {
     icon: CheckCircle2,
-    badge: "bg-emerald-50 text-emerald-700 border-emerald-200",
-    dot: "bg-emerald-500",
+    badge:
+      "border-emerald-300/70 bg-emerald-50 text-emerald-700 dark:border-emerald-400/25 dark:bg-emerald-400/10 dark:text-emerald-300",
+    dot: "bg-emerald-500 dark:bg-emerald-400",
   },
   "In Progress": {
     icon: Loader,
-    badge: "bg-amber-50 text-amber-700 border-amber-200",
-    dot: "bg-amber-500",
+    badge:
+      "border-amber-300/70 bg-amber-50 text-amber-700 dark:border-amber-400/25 dark:bg-amber-400/10 dark:text-amber-300",
+    dot: "bg-amber-500 dark:bg-amber-400",
   },
   Concept: {
     icon: CircleDot,
-    badge: "bg-violet-50 text-violet-700 border-violet-200",
-    dot: "bg-violet-500",
+    badge:
+      "border-violet-300/70 bg-violet-50 text-violet-700 dark:border-violet-400/25 dark:bg-violet-400/10 dark:text-violet-300",
+    dot: "bg-violet-500 dark:bg-violet-400",
   },
 };
 
@@ -63,15 +66,15 @@ export function Projects() {
   return (
     <section
       id="projects"
-      className="scroll-mt-16 bg-white py-20 md:py-28"
+      className="scroll-mt-16 py-20 md:py-28"
       aria-labelledby="projects-heading"
     >
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <SectionHeading
           index="03"
-          eyebrow="Key Projects"
+          eyebrow="Missions"
           title="Things I've built — and things I'm building"
-          description="From shipped production systems to work in progress. Filter by status to see where each project stands right now."
+          description="From shipped production systems to work in progress. Filter by status to see where each mission stands right now."
         />
 
         {/* ── Filter bar ── */}
@@ -91,14 +94,14 @@ export function Projects() {
                 className={cn(
                   "inline-flex items-center gap-2 rounded-full border px-4 py-2 text-sm font-medium transition-all",
                   active
-                    ? "border-navy-900 bg-navy-900 text-white shadow-md shadow-navy-900/20"
-                    : "border-navy-200 bg-white text-navy-700 hover:border-navy-400 hover:bg-navy-100/60"
+                    ? "border-transparent bg-gradient-to-r from-cyan-500 to-violet-500 text-white shadow-lg shadow-glow/30"
+                    : "border-line bg-panel/70 text-ink hover:border-glow/45 hover:bg-glow/10 hover:text-glow"
                 )}
               >
                 <span
                   className={cn(
                     "size-1.5 rounded-full",
-                    f === "All" && "bg-brand-500",
+                    f === "All" && !active && "bg-glow",
                     f !== "All" && STATUS_META[f].dot
                   )}
                   aria-hidden="true"
@@ -107,9 +110,7 @@ export function Projects() {
                 <span
                   className={cn(
                     "rounded-full px-1.5 py-0.5 font-mono text-[10px] leading-none",
-                    active
-                      ? "bg-white/20 text-white"
-                      : "bg-navy-100 text-navy-500"
+                    active ? "bg-white/25 text-white" : "bg-secondary text-ink-muted"
                   )}
                 >
                   {counts[f]}
@@ -133,22 +134,22 @@ export function Projects() {
                   animate={{ opacity: 1, scale: 1, y: 0 }}
                   exit={{ opacity: 0, scale: 0.94, y: -12 }}
                   transition={{ duration: 0.35, ease: "easeOut" }}
-                  className="group flex h-full flex-col rounded-2xl border border-navy-100 bg-white p-6 shadow-sm transition-shadow hover:shadow-xl hover:shadow-navy-900/10"
+                  className="group flex h-full flex-col rounded-2xl border border-line bg-panel/80 p-6 backdrop-blur transition-all hover:-translate-y-1 hover:border-glow/45 hover:shadow-xl hover:shadow-glow/10"
                 >
                   {/* Header */}
                   <div className="mb-4 flex items-start justify-between gap-3">
                     <div className="flex items-center gap-3">
                       <span
-                        className="grid size-11 shrink-0 place-items-center rounded-xl bg-navy-50 text-xl"
+                        className="grid size-11 shrink-0 place-items-center rounded-xl bg-secondary text-xl"
                         aria-hidden="true"
                       >
                         {project.emoji}
                       </span>
                       <div>
-                        <h3 className="font-[family-name:var(--font-display)] text-lg font-semibold leading-tight text-navy-900">
+                        <h3 className="font-[family-name:var(--font-display)] text-lg font-semibold leading-tight text-ink-heading">
                           {project.title}
                         </h3>
-                        <p className="mt-0.5 text-xs text-muted-foreground">
+                        <p className="mt-0.5 text-xs text-ink-muted">
                           {project.tagline}
                         </p>
                       </div>
@@ -166,7 +167,7 @@ export function Projects() {
                     {project.status}
                   </span>
 
-                  <p className="text-sm leading-relaxed text-slate-600">
+                  <p className="text-sm leading-relaxed text-ink-soft">
                     {project.description}
                   </p>
 
@@ -175,7 +176,7 @@ export function Projects() {
                     {project.highlights.map((h) => (
                       <li
                         key={h}
-                        className="flex items-start gap-2 text-[13px] leading-relaxed text-navy-700"
+                        className="flex items-start gap-2 text-[13px] leading-relaxed text-ink"
                       >
                         <span
                           className={cn(
@@ -190,11 +191,11 @@ export function Projects() {
                   </ul>
 
                   {/* Tech chips */}
-                  <div className="mt-5 flex flex-wrap gap-1.5">
+                  <div className="mb-5 mt-5 flex flex-wrap gap-1.5">
                     {project.tech.map((t) => (
                       <span
                         key={t}
-                        className="rounded-md bg-navy-50 px-2 py-1 font-mono text-[11px] text-navy-600"
+                        className="rounded-md bg-secondary px-2 py-1 font-mono text-[11px] text-ink-soft"
                       >
                         {t}
                       </span>
@@ -202,13 +203,13 @@ export function Projects() {
                   </div>
 
                   {/* Links */}
-                  <div className="mt-auto flex items-center gap-3 border-t border-navy-100/80 pt-4 mt-5">
+                  <div className="mt-auto flex items-center gap-3 border-t border-line/80 pt-4">
                     {project.repoUrl && (
                       <a
                         href={project.repoUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1.5 text-sm font-medium text-navy-700 transition-colors hover:text-brand-600"
+                        className="inline-flex items-center gap-1.5 text-sm font-medium text-ink transition-colors hover:text-glow"
                       >
                         <Github className="size-4" aria-hidden="true" />
                         Code
@@ -219,14 +220,14 @@ export function Projects() {
                         href={project.liveUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1.5 text-sm font-medium text-navy-700 transition-colors hover:text-brand-600"
+                        className="inline-flex items-center gap-1.5 text-sm font-medium text-ink transition-colors hover:text-glow"
                       >
                         <ExternalLink className="size-4" aria-hidden="true" />
                         Live demo
                       </a>
                     )}
                     {!project.repoUrl && !project.liveUrl && (
-                      <span className="text-xs italic text-muted-foreground">
+                      <span className="text-xs italic text-ink-muted">
                         Design phase — code coming soon
                       </span>
                     )}
@@ -238,13 +239,13 @@ export function Projects() {
         </motion.div>
 
         {/* More-work note */}
-        <p className="mt-10 text-center text-sm text-muted-foreground">
+        <p className="mt-10 text-center text-sm text-ink-soft">
           More backend experiments and utilities live on{" "}
           <a
             href="https://github.com/Its-Xen"
             target="_blank"
             rel="noopener noreferrer"
-            className="font-medium text-brand-600 underline decoration-brand-300 underline-offset-4 hover:text-brand-700"
+            className="font-medium text-glow underline decoration-glow/40 underline-offset-4 hover:text-nebula"
           >
             my GitHub
           </a>

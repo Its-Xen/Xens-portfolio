@@ -50,16 +50,34 @@ export const metadata: Metadata = {
   },
 };
 
+/**
+ * Runs synchronously before first paint (first node in <body>) so the
+ * stored theme is applied without any flash. Deep space (dark) is the
+ * default; visitors who chose "light" get the daylight variant.
+ */
+const themeInitScript = `
+(function () {
+  try {
+    var stored = localStorage.getItem("theme");
+    var dark = stored ? stored === "dark" : true;
+    document.documentElement.classList.toggle("dark", dark);
+  } catch (e) {
+    document.documentElement.classList.add("dark");
+  }
+})();
+`;
+
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" className="dark" suppressHydrationWarning>
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${spaceGrotesk.variable} antialiased bg-background text-foreground`}
       >
+        <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
         {children}
         <Toaster />
       </body>

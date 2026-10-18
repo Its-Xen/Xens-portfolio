@@ -8,10 +8,12 @@ import { Education } from "@/components/portfolio/education";
 import { ReadingList } from "@/components/portfolio/reading-list";
 import { Contact } from "@/components/portfolio/contact";
 import { Footer } from "@/components/portfolio/footer";
+import { Starfield } from "@/components/portfolio/starfield";
 
 export default function Home() {
   return (
     <div className="flex min-h-screen flex-col">
+      <Starfield />
       <Navbar />
       <main className="flex-1">
         <Hero />

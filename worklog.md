@@ -88,3 +88,26 @@ Work Log:
 Stage Summary:
 - Reading List now shows real cover photos; Tools shows real brand icons; SEO description one line
 - All assets self-hosted in public/ — nothing external, still 100% static for Cloudflare Pages
+
+---
+Task ID: 6
+Agent: Main agent (Z.ai)
+Task: Space theme redesign ("sth very cool and iconic") + dark mode toggle
+
+Work Log:
+- New theme system in globals.css: CSS token pairs switching on html.dark — dark "Deep Space" (default: #050912 bg, cyan/violet/fuchsia accents) and light "Stratosphere" (icy pale + pastel nebula); tokens: glow/nebula/flare/hull/panel/line/ink-scale + shadcn var overrides so Toaster/Sheet auto-adapt; utilities: bg-grid-space, text-gradient-cosmic, .nebula blobs, orbit-spin/twinkle/drift keyframes, prefers-reduced-motion kill-switch
+- Theme engine: layout.tsx adds blocking init script (first child of body) reading localStorage("theme") before first paint — dark default, zero FOUC; html ships with class="dark"
+- theme-toggle.tsx: useSyncExternalStore over html class (no setState-in-effect, hydration-safe), Sun/Moon morph button, orbiting-dot decoration, persists to localStorage, dispatches "themechange"
+- starfield.tsx: fixed -z-10 canvas — ~230 twinkling stars (white/cyan/indigo tints in dark, faint navy in light), shooting stars every ~4-9s (dark only), DPR-capped, pauses on tab hidden, MutationObserver repaint on theme flip, static frame under reduced motion
+- Hero: "Mission Control" — cosmic-gradient name + glow, /// mono kicker, rocket CTA (cyan-500→violet-500 gradient buttons site-wide), FastAPI code window (always-dark hull) wrapped in two rotating orbit rings w/ satellite dots, floating chips, twinkle sparkles, grid overlay w/ radial mask, stats values in cosmic gradient, mono SCROLL hint
+- Navbar: Orbit-icon brand, ThemeToggle between links and Hire Me (mobile too), scrolled = bg-background/80 glass; mobile sheet stays dark hull with 7 links
+- Section eyebrows rebranded: 01 Crew Profile · 02 Flight Log · 03 Missions · 04 Instrument Panel · 05 Training Deck · 06 Data Vault · 07 Transmission; SectionHeading rewritten to tokens (dark prop removed), gradient underline cyan→violet→pink
+- All sections restyled to token classes: transparent sections over starfield, banded sections (experience/tools/reading) with bg-glow/[0.035] + border-y, glass panels bg-panel/80 + backdrop-blur + glow hover borders, gradient icon tiles, dark-mode status badges for projects (emerald/amber/violet with dark: variants), timeline nodes with star glow, gradient filter pills, language bars cosmic gradient, hull panels with nebula blobs for tools/reading/contact cards; footer bg-hull "transmitting from orbit"
+- Also: fixed duplicate mt classes bug in projects links row, removed odd cnHtest() helper in tools, footer blurb shortened, profile.tagline shortened to one line (user's earlier "shorter header text" request — no more tech-stack dump), favicon → orbit/planet/satellite motif, README: theme section + updated structure
+- Verified: bun run build clean, eslint clean (fixed set-state-in-effect via useSyncExternalStore); browser: dark desktop hero + all 7 sections, light hero + reading section, theme toggle round-trip (dark→light→dark), persistence after reload (no flash), mobile 375px dark+light + hamburger menu, zero console errors (only pre-existing shadcn aria warning)
+- out/ = 5.2MB static export, all 7 mission labels present
+
+Stage Summary:
+- Site is now "Deep Space Mission Control": dark by default with living starfield + shooting stars, orbit-ringed code window, cosmic gradients; light mode one click away and persists
+- Theme palette tuneable in one place (globals.css token blocks); content still 100% centralized in portfolio-data.ts
+- Ready for user's manual git push + Cloudflare Pages deploy

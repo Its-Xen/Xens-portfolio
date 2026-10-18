@@ -9,13 +9,13 @@ export function ReadingList() {
   return (
     <section
       id="reading"
-      className="scroll-mt-16 bg-navy-50/50 py-20 md:py-28"
+      className="scroll-mt-16 border-y border-line/70 bg-glow/[0.035] py-20 md:py-28"
       aria-labelledby="reading-heading"
     >
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <SectionHeading
           index="06"
-          eyebrow="Reading List"
+          eyebrow="Data Vault"
           title="Books I've read & keep on my shelf"
           description="The shelf behind the stack — Python craft, API design, data systems, security, and the protocols and infrastructure underneath it all. These shaped how I design, build, and operate backends."
         />
@@ -23,8 +23,8 @@ export function ReadingList() {
         <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {books.map((book, i) => (
             <Reveal key={book.title} delay={0.04 * (i % 4)}>
-              <article className="flex h-full flex-col rounded-2xl border border-navy-100 bg-white p-3 shadow-sm transition-all hover:-translate-y-1 hover:shadow-lg hover:shadow-navy-900/5">
-                {/* ── CSS book cover ── */}
+              <article className="flex h-full flex-col rounded-2xl border border-line bg-panel/80 p-3 backdrop-blur transition-all hover:-translate-y-1 hover:border-glow/40 hover:shadow-lg hover:shadow-glow/10">
+                {/* ── Book cover (real photo over gradient fallback) ── */}
                 <a
                   href={book.link}
                   target="_blank"
@@ -71,7 +71,7 @@ export function ReadingList() {
                   )}
 
                   {/* category pill (stays readable over any cover photo) */}
-                  <span className="absolute left-2.5 top-2.5 z-10 rounded-md bg-navy-950/55 px-2 py-1 font-mono text-[9px] uppercase tracking-[0.18em] text-white/85 backdrop-blur-sm">
+                  <span className="absolute left-2.5 top-2.5 z-10 rounded-md bg-hull/65 px-2 py-1 font-mono text-[9px] uppercase tracking-[0.18em] text-white/85 backdrop-blur-sm">
                     {book.category}
                   </span>
 
@@ -83,7 +83,7 @@ export function ReadingList() {
                 </a>
 
                 {/* why it's on the shelf */}
-                <p className="mt-3 px-1 pb-1 text-[13px] leading-relaxed text-navy-800/80">
+                <p className="mt-3 px-1 pb-1 text-[13px] leading-relaxed text-ink-soft">
                   {book.note}
                 </p>
               </article>
@@ -92,11 +92,15 @@ export function ReadingList() {
 
           {/* ── Shelf stats card (spans the rest of the last row) ── */}
           <Reveal delay={0.12} className="lg:col-span-3">
-            <article className="flex h-full flex-col justify-between rounded-2xl bg-navy-900 p-6 text-white shadow-sm md:p-8 lg:flex-row lg:items-center lg:gap-10">
+            <article className="relative flex h-full flex-col justify-between overflow-hidden rounded-2xl border border-glow/25 bg-hull p-6 text-white shadow-lg shadow-glow/10 md:p-8 lg:flex-row lg:items-center lg:gap-10">
+              <div
+                className="nebula -top-20 right-[20%] size-64 bg-nebula/20"
+                aria-hidden="true"
+              />
               {/* count */}
-              <div className="flex items-center gap-4 lg:shrink-0">
+              <div className="relative flex items-center gap-4 lg:shrink-0">
                 <span
-                  className="grid size-12 shrink-0 place-items-center rounded-xl bg-brand-500/15 text-brand-400"
+                  className="grid size-12 shrink-0 place-items-center rounded-xl border border-glow/25 bg-glow/10 text-glow"
                   aria-hidden="true"
                 >
                   <Library className="size-6" />
@@ -112,21 +116,21 @@ export function ReadingList() {
               </div>
 
               {/* shelf facts */}
-              <ul className="mt-6 space-y-3 text-sm leading-relaxed text-navy-100/80 lg:mt-0 lg:flex-1">
+              <ul className="relative mt-6 space-y-3 text-sm leading-relaxed text-navy-100/80 lg:mt-0 lg:flex-1">
                 <li className="flex gap-2.5">
-                  <BookOpen className="mt-0.5 size-4 shrink-0 text-brand-400" aria-hidden="true" />
+                  <BookOpen className="mt-0.5 size-4 shrink-0 text-glow" aria-hidden="true" />
                   6 shelves — Python, APIs &amp; frameworks, data systems, code
                   craft, protocols, infrastructure
                 </li>
                 <li className="flex gap-2.5">
-                  <BookOpen className="mt-0.5 size-4 shrink-0 text-brand-400" aria-hidden="true" />
+                  <BookOpen className="mt-0.5 size-4 shrink-0 text-glow" aria-hidden="true" />
                   Theory that shipped — every title maps to something I&apos;ve
                   built or operated in production
                 </li>
               </ul>
 
               {/* cta */}
-              <div className="mt-6 border-t border-white/10 pt-5 lg:mt-0 lg:shrink-0 lg:border-0 lg:pt-0">
+              <div className="relative mt-6 border-t border-white/10 pt-5 lg:mt-0 lg:shrink-0 lg:border-0 lg:pt-0">
                 <p className="font-mono text-[11px] leading-relaxed text-navy-200/50">
                   $ cat shelf.next
                   <br />
@@ -134,7 +138,7 @@ export function ReadingList() {
                 </p>
                 <a
                   href="#contact"
-                  className="mt-3 inline-flex items-center gap-1.5 rounded-lg bg-white/5 px-3.5 py-2 text-xs font-medium text-brand-300 transition-colors hover:bg-white/10 hover:text-brand-200"
+                  className="mt-3 inline-flex items-center gap-1.5 rounded-lg bg-white/5 px-3.5 py-2 text-xs font-medium text-glow transition-colors hover:bg-white/10 hover:text-nebula"
                 >
                   <Mail className="size-3.5" aria-hidden="true" />
                   Suggest a book

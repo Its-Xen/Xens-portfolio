@@ -6,7 +6,6 @@ interface SectionHeadingProps {
   eyebrow: string;
   title: string;
   description?: string;
-  dark?: boolean;
   align?: "left" | "center";
 }
 
@@ -15,7 +14,6 @@ export function SectionHeading({
   eyebrow,
   title,
   description,
-  dark = false,
   align = "left",
 }: SectionHeadingProps) {
   return (
@@ -25,27 +23,17 @@ export function SectionHeading({
         align === "center" && "text-center flex flex-col items-center"
       )}
     >
-      <p
-        className={cn(
-          "font-mono text-sm tracking-widest uppercase mb-3",
-          dark ? "text-brand-400" : "text-brand-600"
-        )}
-      >
+      <p className="mb-3 flex items-center gap-2 font-mono text-sm uppercase tracking-widest text-glow">
+        <span className="inline-block size-1.5 rounded-full bg-glow shadow-[0_0_8px_var(--star-glow)]" aria-hidden="true" />
         {index} · {eyebrow}
       </p>
-      <h2
-        className={cn(
-          "font-[family-name:var(--font-display)] text-3xl md:text-4xl lg:text-[2.75rem] font-bold tracking-tight leading-tight",
-          dark ? "text-white" : "text-navy-900"
-        )}
-      >
+      <h2 className="font-[family-name:var(--font-display)] text-3xl md:text-4xl lg:text-[2.75rem] font-bold tracking-tight leading-tight text-ink-heading">
         {title}
       </h2>
       {description && (
         <p
           className={cn(
-            "mt-4 max-w-2xl text-base md:text-lg leading-relaxed",
-            dark ? "text-navy-100/70" : "text-muted-foreground",
+            "mt-4 max-w-2xl text-base md:text-lg leading-relaxed text-ink-soft",
             align === "center" && "mx-auto"
           )}
         >
@@ -53,10 +41,7 @@ export function SectionHeading({
         </p>
       )}
       <div
-        className={cn(
-          "mt-6 h-1 w-16 rounded-full bg-gradient-to-r from-brand-500 to-brand-300",
-          align === "center" && "mx-auto"
-        )}
+        className="mt-6 h-1 w-16 rounded-full bg-gradient-to-r from-glow via-nebula to-flare"
         aria-hidden="true"
       />
     </Reveal>
